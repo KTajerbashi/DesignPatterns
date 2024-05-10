@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <Folder Include="Decorator\" />
+    <Folder Include="Facade\" />
+    <Folder Include="Bridge\" />
+    <Folder Include="Composite\" />
+    <Folder Include="Flyweight\" />
+    <Folder Include="Proxy\" />
   </ItemGroup>
 
 </Project>
