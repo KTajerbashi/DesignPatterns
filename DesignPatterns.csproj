@@ -13,6 +13,7 @@
     <Folder Include="Bridge\" />
     <Folder Include="Composite\" />
     <Folder Include="Flyweight\" />
+    <Folder Include="Adapter\" />
     <Folder Include="Proxy\" />
   </ItemGroup>
 
