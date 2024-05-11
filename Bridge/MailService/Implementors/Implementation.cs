@@ -1,5 +1,4 @@
-﻿using Design.Pattern.Library.Bridge.MailService.Implementors;
-using System.Configuration;
+﻿using System.Configuration;
 
 namespace DesignPatterns.Bridge.MailService.Implementors
 {
