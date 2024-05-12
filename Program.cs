@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using DesignPatterns.Factory.Services;
+using DesignPatterns.AbstractFactory.Pattern;
+using DesignPatterns.AbstractFactory.Pattern.Concrete;
 using DesignPatterns.Tools;
 
 DesignConsole console = DesignConsole.DesignInstance();
@@ -45,17 +46,34 @@ console.Start("Application");
 #endregion
 
 #region Factory
-ConcreteCreator concreteCreator = new ConcreteCreator();
-ISmsService mailService;
-mailService = concreteCreator.FactoryMethod(CountryType.None);
-mailService.Send(new MailDTO { Phone="09020320844",Email="Kaihan@mail.com",Message="Hello"});
-mailService.GetMails();
-mailService = concreteCreator.FactoryMethod(CountryType.Afghanistan);
-mailService.Send(new MailDTO { Phone = "09024006014", Email = "Kamran@mail.com", Message = "Hello" });
-mailService = concreteCreator.FactoryMethod(CountryType.Iran);
-mailService.Send(new MailDTO { Phone = "09961514027", Email = "Tajer@mail.com", Message = "Hello" });
-mailService = concreteCreator.FactoryMethod(CountryType.Turkey);
-mailService.Send(new MailDTO { Phone = "09021001000", Email = "Tiger@mail.com", Message = "Hello" });
+//ConcreteCreator concreteCreator = new ConcreteCreator();
+//ISmsService mailService;
+//mailService = concreteCreator.FactoryMethod(CountryType.None);
+//mailService.Send(new MailDTO { Phone="09020320844",Email="Kaihan@mail.com",Message="Hello"});
+//mailService.GetMails();
+//mailService = concreteCreator.FactoryMethod(CountryType.Afghanistan);
+//mailService.Send(new MailDTO { Phone = "09024006014", Email = "Kamran@mail.com", Message = "Hello" });
+//mailService = concreteCreator.FactoryMethod(CountryType.Iran);
+//mailService.Send(new MailDTO { Phone = "09961514027", Email = "Tajer@mail.com", Message = "Hello" });
+//mailService = concreteCreator.FactoryMethod(CountryType.Turkey);
+//mailService.Send(new MailDTO { Phone = "09021001000", Email = "Tiger@mail.com", Message = "Hello" });
+#endregion
+
+#region Abstract Factory
+AbstractFactory abstractFactory = new ConcreteFactory1();
+AbstractFactory abstractFactory2 = new ConcreteFactory2();
+
+var ProductA = abstractFactory.CreateProductA();
+var ProductB = abstractFactory.CreateProductB();
+
+ProductA.Execute();
+ProductB.Execute();
+
+var ProductA2 = abstractFactory2.CreateProductA();
+var ProductA3 = abstractFactory2.CreateProductB();
+
+ProductA2.Execute();
+ProductA3.Execute();
 #endregion
 
 console.End("Application");
