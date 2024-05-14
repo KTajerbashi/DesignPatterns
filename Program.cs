@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DesignPatterns.AbstractFactory.Pattern;
 using DesignPatterns.AbstractFactory.Pattern.Concrete;
+using DesignPatterns.Builder.Pattern;
 using DesignPatterns.Tools;
 
 DesignConsole console = DesignConsole.DesignInstance();
@@ -60,21 +61,39 @@ console.Start("Application");
 #endregion
 
 #region Abstract Factory
-AbstractFactory abstractFactory = new ConcreteFactory1();
-AbstractFactory abstractFactory2 = new ConcreteFactory2();
+//AbstractFactory abstractFactory = new ConcreteFactory1();
+//AbstractFactory abstractFactory2 = new ConcreteFactory2();
 
-var ProductA = abstractFactory.CreateProductA();
-var ProductB = abstractFactory.CreateProductB();
+//var ProductA = abstractFactory.CreateProductA();
+//var ProductB = abstractFactory.CreateProductB();
 
-ProductA.Execute();
-ProductB.Execute();
+//ProductA.Execute();
+//ProductB.Execute();
 
-var ProductA2 = abstractFactory2.CreateProductA();
-var ProductA3 = abstractFactory2.CreateProductB();
+//var ProductA2 = abstractFactory2.CreateProductA();
+//var ProductA3 = abstractFactory2.CreateProductB();
 
-ProductA2.Execute();
-ProductA3.Execute();
+//ProductA2.Execute();
+//ProductA3.Execute();
 #endregion
+
+#region Builder
+console.ForeColor(ConsoleColor.Cyan);
+Director director = new Director();
+var builderA = new ConcreteBuilderA();
+var builderB = new ConcreteBuilderB();
+director.SetBuilder(builderA);
+director.Constructor();
+var productA = builderA.GetResult();
+productA.DisplayInfo();
+console.Section();
+director.SetBuilder(builderB);
+director.Constructor();
+var productB = builderB.GetResult();
+
+productB.DisplayInfo();
+#endregion
+
 
 console.End("Application");
 
