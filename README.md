@@ -2,7 +2,7 @@
 
 
 This repository contains a collection of the 23 Gang of Four (GoF) design patterns in software development. Each pattern is implemented in a separate directory and includes sample code and demo.
-Also, I have written brief articles about these patterns in my personal blog, which you can refer to through the [link](https://rezababakhani.ir/blog?tag=Design%20Patterns).
+
 
 ## Design Patterns Included
 The following 23 GoF design patterns are included in this repository:
