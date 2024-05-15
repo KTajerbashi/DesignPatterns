@@ -109,7 +109,9 @@ console.Start("Application");
 #region TemplateMethod
 #region Pattern
 TemplateMethodContainer templateMethod = new TemplateMethodContainer();
-templateMethod.Pattern();
+//templateMethod.Pattern();
+console.ForeColor();
+templateMethod.Example();
 #endregion
 #endregion
 

@@ -1,6 +1,5 @@
 ﻿using DesignPatterns.TemplateMethod.Pattern;
 using DesignPatterns.Tools;
-
 namespace DesignPatterns.TemplateMethod.Container
 {
     public class TemplateMethodContainer
@@ -16,6 +15,11 @@ namespace DesignPatterns.TemplateMethod.Container
             Client.Run(new ConcreteAbstractClassA());
             Console.ForeColor();
             Client.Run(new ConcreteAbstractClassB());
+        }
+
+        public void Example()
+        {
+            DesignPatterns.TemplateMethod.Example.Client.RunTemplateMethod(new DesignPatterns.TemplateMethod.Example.ConcreteClassA());
         }
     }
 }
