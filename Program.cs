@@ -2,6 +2,8 @@
 using DesignPatterns.AbstractFactory.Pattern;
 using DesignPatterns.AbstractFactory.Pattern.Concrete;
 using DesignPatterns.Builder.Pattern;
+using DesignPatterns.Strategy.Container;
+using DesignPatterns.Strategy.Pattern;
 using DesignPatterns.Tools;
 
 DesignConsole console = DesignConsole.DesignInstance();
@@ -78,22 +80,30 @@ console.Start("Application");
 #endregion
 
 #region Builder
-console.ForeColor(ConsoleColor.Cyan);
-Director director = new Director();
-var builderA = new ConcreteBuilderA();
-var builderB = new ConcreteBuilderB();
-director.SetBuilder(builderA);
-director.Constructor();
-var productA = builderA.GetResult();
-productA.DisplayInfo();
-console.Section();
-director.SetBuilder(builderB);
-director.Constructor();
-var productB = builderB.GetResult();
+//console.ForeColor(ConsoleColor.Cyan);
+//Director director = new Director();
+//var builderA = new ConcreteBuilderA();
+//var builderB = new ConcreteBuilderB();
+//director.SetBuilder(builderA);
+//director.Constructor();
+//var productA = builderA.GetResult();
+//productA.DisplayInfo();
+//console.Section();
+//director.SetBuilder(builderB);
+//director.Constructor();
+//var productB = builderB.GetResult();
 
-productB.DisplayInfo();
+//productB.DisplayInfo();
 #endregion
 
+#region Strategy
+#region Pattern
+StrategyContainer strategy = new StrategyContainer();
+//strategy.Pattern();
+strategy.Sorting();
+#endregion
+
+#endregion
 
 console.End("Application");
 
