@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Context
+namespace DesignPatterns.Contexts
 {
     //public class DatabaseContext : IdentityDbContext
     public class DatabaseContext : DbContext

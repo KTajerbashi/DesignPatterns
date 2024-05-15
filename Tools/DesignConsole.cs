@@ -1,4 +1,6 @@
-﻿namespace DesignPatterns.Tools
+﻿using System;
+
+namespace DesignPatterns.Tools
 {
     public class DesignConsole
     {
@@ -7,7 +9,7 @@
         {
             Console.Title = "Design Pattern";
         }
-        
+
         public static DesignConsole DesignInstance()
         {
             return Design.Value;
@@ -29,9 +31,9 @@
         {
             Console.WriteLine("\n");
         }
-        public void Section()
+        public void Section(string title = "")
         {
-            Console.WriteLine("\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+            Console.WriteLine($"\n:: :: :: :: :: {title} :: :: :: :: ::\n");
         }
         public void Title(string title)
         {
@@ -55,6 +57,14 @@
             Console.WriteLine("======================================================");
             Background(ConsoleColor.Black);
             Section();
+        }
+
+        public void ForeColor()
+        {
+            var random = new Random();
+            this.ForeColor((ConsoleColor)random.Next((int)ConsoleColor.Black + 1, (int)ConsoleColor.Yellow));
+            random.Next();
+
         }
     }
 
