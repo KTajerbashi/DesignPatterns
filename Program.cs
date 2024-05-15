@@ -4,6 +4,7 @@ using DesignPatterns.AbstractFactory.Pattern.Concrete;
 using DesignPatterns.Builder.Pattern;
 using DesignPatterns.Strategy.Container;
 using DesignPatterns.Strategy.Pattern;
+using DesignPatterns.TemplateMethod.Container;
 using DesignPatterns.Tools;
 
 DesignConsole console = DesignConsole.DesignInstance();
@@ -98,12 +99,20 @@ console.Start("Application");
 
 #region Strategy
 #region Pattern
-StrategyContainer strategy = new StrategyContainer();
+//StrategyContainer strategy = new StrategyContainer();
 //strategy.Pattern();
-strategy.Sorting();
+//strategy.Sorting();
 #endregion
 
 #endregion
+
+#region TemplateMethod
+#region Pattern
+TemplateMethodContainer templateMethod = new TemplateMethodContainer();
+templateMethod.Pattern();
+#endregion
+#endregion
+
 
 console.End("Application");
 
