@@ -110,8 +110,8 @@ console.Start("Application");
 #region Pattern
 TemplateMethodContainer templateMethod = new TemplateMethodContainer();
 //templateMethod.Pattern();
-console.ForeColor();
-templateMethod.Example();
+//templateMethod.Example();
+templateMethod.RegisterOrder();
 #endregion
 #endregion
 

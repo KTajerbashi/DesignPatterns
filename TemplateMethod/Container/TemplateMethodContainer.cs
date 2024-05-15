@@ -1,4 +1,5 @@
-﻿using DesignPatterns.TemplateMethod.Pattern;
+﻿using DesignPatterns.TemplateMethod.CardRegister.CardService;
+using DesignPatterns.TemplateMethod.Pattern;
 using DesignPatterns.Tools;
 namespace DesignPatterns.TemplateMethod.Container
 {
@@ -20,6 +21,17 @@ namespace DesignPatterns.TemplateMethod.Container
         public void Example()
         {
             DesignPatterns.TemplateMethod.Example.Client.RunTemplateMethod(new DesignPatterns.TemplateMethod.Example.ConcreteClassA());
+        }
+
+
+        public void RegisterOrder()
+        {
+            Console.ForeColor();
+            ClientRegisterCardOrder.Execute(new ConcreteCardServiceGmailService());
+            Console.ForeColor();
+            Console.Section();
+            Console.ForeColor();
+            ClientRegisterCardOrder.Execute(new ConcreteCardServiceYahooService());
         }
     }
 }
