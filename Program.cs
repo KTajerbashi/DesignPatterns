@@ -2,6 +2,7 @@
 using DesignPatterns.AbstractFactory.Pattern;
 using DesignPatterns.AbstractFactory.Pattern.Concrete;
 using DesignPatterns.Builder.Pattern;
+using DesignPatterns.ChainOfResponsibility.Container;
 using DesignPatterns.Strategy.Container;
 using DesignPatterns.Strategy.Pattern;
 using DesignPatterns.TemplateMethod.Container;
@@ -108,12 +109,19 @@ console.Start("Application");
 
 #region TemplateMethod
 #region Pattern
-TemplateMethodContainer templateMethod = new TemplateMethodContainer();
+//TemplateMethodContainer templateMethod = new TemplateMethodContainer();
 //templateMethod.Pattern();
 //templateMethod.Example();
-templateMethod.RegisterOrder();
+//templateMethod.RegisterOrder();
 #endregion
 #endregion
+
+#region ChainOfResponsibility
+ChainOfResponsibilityContainer pattern = new ChainOfResponsibilityContainer();
+//pattern.Pattern();
+pattern.Snapp();
+#endregion
+
 
 
 console.End("Application");
