@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Composite.Categories;
+﻿using DesignPatterns.Composite.Examples.Categories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
