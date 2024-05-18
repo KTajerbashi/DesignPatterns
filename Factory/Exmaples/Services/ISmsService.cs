@@ -1,6 +1,6 @@
 ﻿using DesignPatterns.Tools;
 
-namespace DesignPatterns.Factory.Services
+namespace DesignPatterns.Factory.Exmaples.Services
 {
     public interface ISmsService
     {
@@ -10,7 +10,7 @@ namespace DesignPatterns.Factory.Services
     public abstract class SmsService : ISmsService
     {
         public abstract List<MailDTO> GetMails();
-        
+
         public abstract void Send(MailDTO mail);
     }
 
