@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Bridge.Draw.Implementation
+namespace DesignPatterns.Bridge.Examples.Draw.Implementation
 {
     /// <summary>
     /// Implementation

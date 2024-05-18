@@ -1,11 +1,11 @@
-﻿using DesignPatterns.Bridge.Draw.Implementation;
+﻿using DesignPatterns.Bridge.Examples.Draw.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Bridge.Draw.Abstraction
+namespace DesignPatterns.Bridge.Examples.Draw.Abstraction
 {
     public abstract class Shape
     {

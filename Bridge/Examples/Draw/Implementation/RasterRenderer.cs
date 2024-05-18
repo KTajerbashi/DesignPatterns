@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Bridge.Draw.Implementation
+﻿namespace DesignPatterns.Bridge.Examples.Draw.Implementation
 {
     /// <summary>
     /// Concrete Implementation

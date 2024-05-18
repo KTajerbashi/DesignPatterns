@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Bridge.Draw.Implementation;
+﻿using DesignPatterns.Bridge.Examples.Draw.Implementation;
 
-namespace DesignPatterns.Bridge.Draw.Abstraction
+namespace DesignPatterns.Bridge.Examples.Draw.Abstraction
 {
     public class Square : Shape
     {

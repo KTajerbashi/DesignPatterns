@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Bridge.MailService.Models;
+﻿using DesignPatterns.Bridge.Examples.MailService.Models;
 
-namespace DesignPatterns.Bridge.MailService.Implementors
+namespace DesignPatterns.Bridge.Examples.MailService.Implementors
 {
     public interface IMailServiceImplementor
     {

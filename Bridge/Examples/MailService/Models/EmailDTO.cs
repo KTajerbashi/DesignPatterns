@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Bridge.MailService.Models
+﻿namespace DesignPatterns.Bridge.Examples.MailService.Models
 {
     public class EmailDTO
     {

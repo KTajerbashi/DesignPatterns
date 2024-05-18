@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace DesignPatterns.Bridge.MailService.Implementors
+namespace DesignPatterns.Bridge.Examples.MailService.Implementors
 {
     public static class Implementation
     {

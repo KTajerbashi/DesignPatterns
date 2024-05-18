@@ -1,7 +1,7 @@
-﻿using DesignPatterns.Bridge.MailService.Implementors;
-using DesignPatterns.Bridge.MailService.Models;
+﻿using DesignPatterns.Bridge.Examples.MailService.Implementors;
+using DesignPatterns.Bridge.Examples.MailService.Models;
 
-namespace DesignPatterns.Bridge.MailService.Abstraction
+namespace DesignPatterns.Bridge.Examples.MailService.Abstraction
 {
     public abstract class MailServiceAbstraction
     {
