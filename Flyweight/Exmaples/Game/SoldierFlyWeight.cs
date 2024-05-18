@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Flyweight.Game
+﻿namespace DesignPatterns.Flyweight.Exmaples.Game
 {
     public abstract class SoldierFlyWeight
     {
