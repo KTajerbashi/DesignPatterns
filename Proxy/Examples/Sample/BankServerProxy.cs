@@ -1,7 +1,7 @@
-﻿using DesignPatterns.Proxy.Sample.MainSource;
-using DesignPatterns.Proxy.Sample.RealSubject;
+﻿using DesignPatterns.Proxy.Examples.Sample.MainSource;
+using DesignPatterns.Proxy.Examples.Sample.RealSubject;
 
-namespace DesignPatterns.Proxy.Sample
+namespace DesignPatterns.Proxy.Examples.Sample
 {
     public class BankServerProxy : IBankRepository
     {
