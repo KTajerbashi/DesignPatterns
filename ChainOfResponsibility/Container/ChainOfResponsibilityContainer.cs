@@ -1,5 +1,5 @@
-﻿using DesignPatterns.ChainOfResponsibility.Pattern;
-using DesignPatterns.ChainOfResponsibility.Snapp;
+﻿using DesignPatterns.ChainOfResponsibility.Examples.Snapp;
+using DesignPatterns.ChainOfResponsibility.Pattern;
 using DesignPatterns.Tools;
 
 namespace DesignPatterns.ChainOfResponsibility.Container

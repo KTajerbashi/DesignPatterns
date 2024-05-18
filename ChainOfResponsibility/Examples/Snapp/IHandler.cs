@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.ChainOfResponsibility.Snapp
+﻿namespace DesignPatterns.ChainOfResponsibility.Examples.Snapp
 {
     public class RequestContext
     {
@@ -27,7 +27,7 @@
 
         public IHandler SetNext(IHandler handler)
         {
-            this.Successor = handler;
+            Successor = handler;
             return Successor;
         }
         public abstract ResponseContext Execute(RequestContext context);
@@ -119,7 +119,7 @@
     {
         public override ResponseContext Execute(RequestContext context)
         {
-           Console.WriteLine("CheckTest is done");
+            Console.WriteLine("CheckTest is done");
             if (Successor is not null)
             {
                 return Successor.Execute(context);
