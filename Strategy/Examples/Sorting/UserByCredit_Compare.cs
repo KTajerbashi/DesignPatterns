@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace DesignPatterns.Strategy.Sorting
+namespace DesignPatterns.Strategy.Examples.Sorting
 {
     public class UserByCredit_Compare : IComparer<User<long>>
     {

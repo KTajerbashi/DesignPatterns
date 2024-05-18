@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Strategy.Sorting;
-using DesignPatterns.Tools;
+﻿using DesignPatterns.Strategy.Examples.Sorting;
 using DesignPatterns.Strategy.Pattern;
+using DesignPatterns.Tools;
 namespace DesignPatterns.Strategy.Container
 {
     public class StrategyContainer
@@ -42,7 +42,7 @@ namespace DesignPatterns.Strategy.Container
 
 
             Console.Section("After Sorting");
-            Array.Sort(users,new UserId_Compare());
+            Array.Sort(users, new UserId_Compare());
             foreach (var item in users)
             {
                 Console.ForeColor();
