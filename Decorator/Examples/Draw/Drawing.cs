@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Decorator.Draw
+﻿namespace DesignPatterns.Decorator.Examples.Draw
 {
     public abstract class Drawing
     {
@@ -31,7 +31,7 @@
     {
         public ConcreteDecoratorDrawing(Drawing drawing) : base(drawing)
         {
-            ConcreteDecoratorDrawing  dc = drawing as ConcreteDecoratorDrawing;
+            ConcreteDecoratorDrawing dc = drawing as ConcreteDecoratorDrawing;
             if (dc == null)
             {
 

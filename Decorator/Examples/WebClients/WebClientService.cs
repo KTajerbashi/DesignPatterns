@@ -1,12 +1,12 @@
 ﻿using System.Net;
 
-namespace DesignPatterns.Decorator.WebClients
+namespace DesignPatterns.Decorator.Examples.WebClients
 {
     public class WebClientService
     {
         public void Execute()
         {
-            WebClient client =  new();
+            WebClient client = new();
             WebClientComponent webClient = new(client);
             string source = webClient.DownloadString("https://www.google.com");
             Console.WriteLine(source);

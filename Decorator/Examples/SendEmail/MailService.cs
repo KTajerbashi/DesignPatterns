@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Decorator.SendEmail
+﻿namespace DesignPatterns.Decorator.Examples.SendEmail
 {
     public abstract class MailService
     {
