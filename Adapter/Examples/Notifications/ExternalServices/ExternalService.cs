@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Adapter.Notifications.ExternalServices
+﻿namespace DesignPatterns.Adapter.Examples.Notifications.ExternalServices
 {
     public class ExternalService
     {
