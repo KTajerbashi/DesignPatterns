@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Composite.Categories
+﻿namespace DesignPatterns.Composite.Examples.Categories
 {
     /// <summary>
     /// Category Component

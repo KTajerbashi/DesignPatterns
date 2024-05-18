@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Composite.AssembleSystem
+﻿namespace DesignPatterns.Composite.Examples.AssembleSystem
 {
     public interface IComponent
     {

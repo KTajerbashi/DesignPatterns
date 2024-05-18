@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Composite.Categories
+﻿namespace DesignPatterns.Composite.Examples.Categories
 {
     /// <summary>
     /// Category
@@ -9,7 +9,7 @@
         {
             Name = name;
         }
-        readonly List<CategoryComponent>  CategoryComponent = new List<CategoryComponent>();
+        readonly List<CategoryComponent> CategoryComponent = new List<CategoryComponent>();
         public ICollection<CategoryComponent> Categories => CategoryComponent;
 
         public CategoryComposite() { }
