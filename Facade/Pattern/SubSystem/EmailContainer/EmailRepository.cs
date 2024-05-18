@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Facade.SubSystem.EmailContainer
+namespace DesignPatterns.Facade.Pattern.SubSystem.EmailContainer
 {
     public class EmailService : IEmailRepository
     {

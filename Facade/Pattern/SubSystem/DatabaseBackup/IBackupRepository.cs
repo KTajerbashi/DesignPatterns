@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Facade.SubSystem.DatabaseBackup
+﻿namespace DesignPatterns.Facade.Pattern.SubSystem.DatabaseBackup
 {
     public interface IBackupRepository
     {

@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Facade.SubSystem.DatabaseBackup;
-using DesignPatterns.Facade.SubSystem.DrawContainer;
-using DesignPatterns.Facade.SubSystem.EmailContainer;
+﻿using DesignPatterns.Facade.Pattern.SubSystem.DatabaseBackup;
+using DesignPatterns.Facade.Pattern.SubSystem.DrawContainer;
+using DesignPatterns.Facade.Pattern.SubSystem.EmailContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;

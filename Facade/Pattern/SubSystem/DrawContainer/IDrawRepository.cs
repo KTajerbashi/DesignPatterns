@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Facade.SubSystem.DrawContainer
+namespace DesignPatterns.Facade.Pattern.SubSystem.DrawContainer
 {
     public interface IDrawRepository
     {
