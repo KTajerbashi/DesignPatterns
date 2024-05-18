@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.TemplateMethod.CardRegister.MailRepository
+﻿namespace DesignPatterns.TemplateMethod.Examples.CardRegister.MailRepository
 {
     public interface IMailRepository
     {

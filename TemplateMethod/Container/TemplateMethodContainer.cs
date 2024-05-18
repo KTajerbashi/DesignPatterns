@@ -1,6 +1,7 @@
-﻿using DesignPatterns.TemplateMethod.CardRegister.CardService;
+﻿using DesignPatterns.TemplateMethod.Examples.CardRegister.CardService;
 using DesignPatterns.TemplateMethod.Pattern;
 using DesignPatterns.Tools;
+
 namespace DesignPatterns.TemplateMethod.Container
 {
     public class TemplateMethodContainer
@@ -20,7 +21,7 @@ namespace DesignPatterns.TemplateMethod.Container
 
         public void Example()
         {
-            DesignPatterns.TemplateMethod.Example.Client.RunTemplateMethod(new DesignPatterns.TemplateMethod.Example.ConcreteClassA());
+            //Client.RunTemplateMethod(new Example.ConcreteClassA());
         }
 
 

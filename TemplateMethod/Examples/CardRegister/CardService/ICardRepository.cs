@@ -1,6 +1,6 @@
-﻿using DesignPatterns.TemplateMethod.CardRegister.MailRepository;
+﻿using DesignPatterns.TemplateMethod.Examples.CardRegister.MailRepository;
 
-namespace DesignPatterns.TemplateMethod.CardRegister.CardService
+namespace DesignPatterns.TemplateMethod.Examples.CardRegister.CardService
 {
     public interface ICardRepository
     {

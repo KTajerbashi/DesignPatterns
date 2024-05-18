@@ -1,15 +1,15 @@
-﻿namespace DesignPatterns.TemplateMethod.Example
+﻿namespace DesignPatterns.TemplateMethod.Examples.Hooks
 {
     public abstract class AbstractClass
     {
         public void TemplateMethod()
         {
-            this.BaseOperation1();
-            this.RequiredOperation1();
-            this.Hook1();
-            this.RequiredOperation2();
-            this.BaseOperation2();
-            this.Hook2();
+            BaseOperation1();
+            RequiredOperation1();
+            Hook1();
+            RequiredOperation2();
+            BaseOperation2();
+            Hook2();
         }
         protected void BaseOperation1()
         {
@@ -32,15 +32,14 @@
 
         protected virtual void Hook1()
         {
-            this.DefaultHook();
+            DefaultHook();
         }
         protected virtual void Hook2()
         {
-            this.DefaultHook();
+            DefaultHook();
         }
 
     }
-
 
     public class ConcreteClassA : AbstractClass
     {
@@ -66,7 +65,7 @@
 
     public class Client
     {
-        public static void RunTemplateMethod(AbstractClass abstractClass) 
+        public static void RunTemplateMethod(AbstractClass abstractClass)
         {
             abstractClass.TemplateMethod();
         }
