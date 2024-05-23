@@ -1,6 +1,6 @@
 ﻿using DesignPatterns.Commands.Examples.MailService;
 using DesignPatterns.Commands.Pattern;
-using DesignPatterns.Tools;
+using DesignPatterns.Extentions.Tools;
 using System;
 
 namespace DesignPatterns.Commands.Container

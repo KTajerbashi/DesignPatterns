@@ -1,6 +1,6 @@
-﻿using DesignPatterns.TemplateMethod.Examples.CardRegister.CardService;
+﻿using DesignPatterns.Extentions.Tools;
+using DesignPatterns.TemplateMethod.Examples.CardRegister.CardService;
 using DesignPatterns.TemplateMethod.Pattern;
-using DesignPatterns.Tools;
 
 namespace DesignPatterns.TemplateMethod.Container
 {

@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Tools;
+﻿using DesignPatterns.Extentions.Tools;
 
 namespace DesignPatterns.Factory.Exmaples.Services
 {

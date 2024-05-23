@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace DesignPatterns.Tools
+namespace DesignPatterns.Extentions.Tools
 {
     public class DesignConsole
     {
-        private static readonly  Lazy<DesignConsole> Design = new Lazy<DesignConsole>(() => new DesignConsole());
+        private static readonly Lazy<DesignConsole> Design = new Lazy<DesignConsole>(() => new DesignConsole());
         private DesignConsole()
         {
             Console.Title = "Design Pattern";
@@ -62,7 +62,7 @@ namespace DesignPatterns.Tools
         public void ForeColor()
         {
             var random = new Random();
-            this.ForeColor((ConsoleColor)random.Next((int)ConsoleColor.Black + 1, (int)ConsoleColor.Yellow));
+            ForeColor((ConsoleColor)random.Next((int)ConsoleColor.Black + 1, (int)ConsoleColor.Yellow));
             random.Next();
 
         }

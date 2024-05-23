@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Strategy.Examples.Sorting;
+﻿using DesignPatterns.Extentions.Tools;
+using DesignPatterns.Strategy.Examples.Sorting;
 using DesignPatterns.Strategy.Pattern;
-using DesignPatterns.Tools;
 namespace DesignPatterns.Strategy.Container
 {
     public class StrategyContainer
