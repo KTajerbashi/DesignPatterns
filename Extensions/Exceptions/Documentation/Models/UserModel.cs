@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Extentions.Exceptions.Documentation.Models
+﻿namespace DesignPatterns.Extensions.Exceptions.Documentation.Models
 {
     public class UserModel
     {

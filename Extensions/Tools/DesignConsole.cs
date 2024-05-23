@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignPatterns.Extentions.Tools
+namespace DesignPatterns.Extensions.Tools
 {
     public class DesignConsole
     {

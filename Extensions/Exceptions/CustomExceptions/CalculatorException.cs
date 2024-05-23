@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Extentions.Exceptions.CustomExceptions;
+﻿namespace DesignPatterns.Extensions.Exceptions.CustomExceptions;
 
 public class CalculatorException : Exception
 {
@@ -18,17 +18,17 @@ public class CalculatorException : Exception
     }
     public CalculatorException(string operation) : base(DefaultMessage)
     {
-        this.Operation = operation;
+        Operation = operation;
     }
 
     public CalculatorException(string operation, string message) : base(message)
     {
-        this.Operation = operation;
+        Operation = operation;
     }
 
     public CalculatorException(string operation, string message, Exception exception) : base(message, exception)
     {
-        this.Operation = operation;
+        Operation = operation;
     }
 
     public override string Message
@@ -40,7 +40,7 @@ public class CalculatorException : Exception
             {
                 return $"{_message} \n {Operation}";
             }
-            return _message ;
+            return _message;
         }
     }
 

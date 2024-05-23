@@ -1,5 +1,5 @@
 ﻿using DesignPatterns.Decorator.Pattern;
-using DesignPatterns.Extentions.Tools;
+using DesignPatterns.Extensions.Tools;
 
 namespace DesignPatterns.Decorator.Container
 {

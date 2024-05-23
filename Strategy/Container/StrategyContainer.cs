@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Extentions.Tools;
+﻿using DesignPatterns.Extensions.Tools;
 using DesignPatterns.Strategy.Examples.Sorting;
 using DesignPatterns.Strategy.Pattern;
 namespace DesignPatterns.Strategy.Container

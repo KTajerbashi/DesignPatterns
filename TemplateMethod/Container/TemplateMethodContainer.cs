@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Extentions.Tools;
+﻿using DesignPatterns.Extensions.Tools;
 using DesignPatterns.TemplateMethod.Examples.CardRegister.CardService;
 using DesignPatterns.TemplateMethod.Pattern;
 

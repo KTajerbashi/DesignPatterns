@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Extentions.Tools;
+﻿using DesignPatterns.Extensions.Tools;
 
 namespace DesignPatterns.Factory.Pattern
 {
@@ -51,7 +51,7 @@ namespace DesignPatterns.Factory.Pattern
             Console.WriteLine("ConcreteCreator.FactoryMethod()");
             if (mode == ProductMode.One)
                 return new ConcreateProduct1();
-            else if(mode == ProductMode.Two)
+            else if (mode == ProductMode.Two)
                 return new ConcreateProduct2();
             else
                 return new DefaultProduct();

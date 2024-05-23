@@ -1,6 +1,6 @@
 ﻿using DesignPatterns.ChainOfResponsibility.Examples.Snapp;
 using DesignPatterns.ChainOfResponsibility.Pattern;
-using DesignPatterns.Extentions.Tools;
+using DesignPatterns.Extensions.Tools;
 
 namespace DesignPatterns.ChainOfResponsibility.Container
 {

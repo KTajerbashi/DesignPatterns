@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Extentions.Exceptions.CustomExceptions;
+﻿namespace DesignPatterns.Extensions.Exceptions.CustomExceptions;
 
 public class InvalidOperationsException : Exception
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace DesignPatterns.Extentions.Contexts
+namespace DesignPatterns.Extensions.Contexts
 {
     //public class DatabaseContext : IdentityDbContext
     public class DatabaseContext : DbContext
@@ -40,14 +40,21 @@ namespace DesignPatterns.Extentions.Contexts
         public DatabaseContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+            //optionsBuilder.UseSqlServer(@"
+            //                                Server=rhg-database.roshdgroup.net\dev;
+            //                                Database=Design_Pattern_DB;
+            //                                User ID=sa; 
+            //                                Password=soft157703ware; 
+            //                                MultipleActiveResultSets=true;
+            //                                TrustServerCertificate=True");
+
             optionsBuilder.UseSqlServer(@"
-                                            Server=rhg-database.roshdgroup.net\dev;
+                                            Server=TAJERBASHI;
                                             Database=Design_Pattern_DB;
                                             User ID=sa; 
-                                            Password=soft157703ware; 
+                                            Password=123123; 
                                             MultipleActiveResultSets=true;
-                                            TrustServerCertificate=True
-");
+                                            TrustServerCertificate=True");
 
             return new DatabaseContext(optionsBuilder.Options);
         }

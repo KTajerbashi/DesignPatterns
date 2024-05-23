@@ -1,12 +1,12 @@
-﻿using DesignPatterns.Extentions.Exceptions.CustomExceptions;
-using DesignPatterns.Extentions.Exceptions.Documentation.BaseExceptionService;
+﻿using DesignPatterns.Extensions.Exceptions.CustomExceptions;
+using DesignPatterns.Extensions.Exceptions.Documentation.BaseExceptionService;
 using System.Diagnostics;
 
-namespace DesignPatterns.Extentions.Exceptions.Documentation.Examples
+namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
 {
-    public class CalcualtorService : BaseExceptionServices
+    public class CalculatorService : BaseExceptionServices
     {
-        public void Divid()
+        public void Divide()
         {
             DesignConsole.Section("CalcualtorService");
             DesignConsole.Start("Sum");
@@ -61,7 +61,6 @@ namespace DesignPatterns.Extentions.Exceptions.Documentation.Examples
                 throw ex;
             }
         }
-
 
 
         public void DataExceptionFun(string parameter)

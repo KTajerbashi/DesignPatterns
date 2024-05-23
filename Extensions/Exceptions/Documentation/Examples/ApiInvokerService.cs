@@ -1,16 +1,15 @@
-﻿using DesignPatterns.Extentions.Tools;
+﻿using DesignPatterns.Extensions.Exceptions.Documentation.BaseExceptionService;
+using DesignPatterns.Extensions.Tools;
 using System.Net;
 
-namespace DesignPatterns.Extentions.Exceptions.Documentation.Examples
+namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
 {
-    public class ApiInvokerService
+    public class ApiInvokerService: BaseExceptionServices
     {
-        private DesignConsole DesignConsole;
         public ApiInvokerService()
         {
-            DesignConsole = DesignConsole.DesignInstance();
         }
-        public void Exceute()
+        public void Execute()
         {
             DesignConsole.ForeColor();
             WebClient webClient = new();

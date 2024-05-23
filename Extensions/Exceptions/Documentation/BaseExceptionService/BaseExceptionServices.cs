@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Extentions.Tools;
+﻿using DesignPatterns.Extensions.Tools;
 
-namespace DesignPatterns.Extentions.Exceptions.Documentation.BaseExceptionService
+namespace DesignPatterns.Extensions.Exceptions.Documentation.BaseExceptionService
 {
     public abstract class BaseExceptionServices
     {
