@@ -1,13 +1,16 @@
-﻿using DesignPatterns.Extensions.Exceptions.CustomExceptions;
+﻿using DesignPatterns.Extensions.Exceptions.BaseExceptionService;
+using DesignPatterns.Extensions.Exceptions.CustomExceptions;
 using DesignPatterns.Extensions.Exceptions.Documentation.Examples;
-using DesignPatterns.Extensions.Exceptions.Documentation.Models;
+using DesignPatterns.Extensions.Exceptions.Models;
 using DesignPatterns.Extensions.Exceptions.Wrapper;
+using DesignPatterns.Extensions.Tools;
 using System.Collections;
 using System.Diagnostics;
+using System.Net;
 
 namespace DesignPatterns.Extensions.Exceptions.Container
 {
-    public class ExceptionContainer
+    public class ExceptionContainer : BaseExceptionServices
     {
         public WrapperContainer WrapperContainer { get; set; }
         public CalculatorService CalculatorService { get; set; }
@@ -247,7 +250,7 @@ Family : {resultModel.Family}
         }
         #endregion
 
-
+        #region Inner Exception
         /// <summary>
         /// Inner Exception
         /// </summary>
@@ -259,7 +262,7 @@ Family : {resultModel.Family}
             }
             catch (Exception ex)
             {
-                    Console.WriteLine($"Inner Exception : {ex.Message}");
+                Console.WriteLine($"Inner Exception : {ex.Message}");
                 Exception exception = ex.InnerException;
                 while (exception != null)
                 {
@@ -327,6 +330,207 @@ Family : {resultModel.Family}
             catch (Exception ex)
             {
                 throw new Exception("InnerExceptionExecuteD", ex);
+            }
+            finally
+            {
+
+            }
+        }
+        #endregion
+
+        #region Custom Exception
+        /// <summary>
+        /// Calculator Exception
+        /// </summary>
+        public void CalculatorExceptionExecute()
+        {
+            try
+            {
+                int a = 10;
+                int b = 0;
+                //int c = a/b;
+                InvalidOperationsExceptionExecute(a, b, '+');
+                NullDataExceptionsExecute(2);
+                NotFoundExceptionsExecute(2);
+                WebClientExceptionExecute();
+            }
+            catch (CalculatorException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Invalid Operations Exception
+        /// </summary>
+        private void InvalidOperationsExceptionExecute(int a, int b, char operation)
+        {
+            try
+            {
+                if (operation.Equals('+'))
+                {
+                    var rr = a+b;
+                }
+                else
+                {
+                    throw new InvalidOperationsException(operation);
+                }
+
+            }
+            catch (InvalidOperationsException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// NullData Exceptions
+        /// </summary>
+        public void NullDataExceptionsExecute(int id)
+        {
+            try
+            {
+                var data = DataList.Find(item => item.Id == id);
+                if (data is null)
+                {
+                    throw new NullDataExceptions("اطلاعات خالی است");
+                }
+            }
+            catch (NullDataExceptions ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// NotFound Exceptions
+        /// </summary>
+        public void NotFoundExceptionsExecute(int id)
+        {
+            try
+            {
+                var data = DataList.Find(item => item.Id == id);
+                if (data is null)
+                {
+                    throw new NullDataExceptions($"اطلاعاتی با شناسه {id}  یافت نشده است");
+                }
+            }
+            catch (NullDataExceptions ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// WebClient Exception
+        /// </summary>
+        public void WebClientExceptionExecute()
+        {
+            try
+            {
+                DesignConsole.ForeColor();
+                WebClient webClient = new();
+                try
+                {
+                    //var result = webClient.DownloadString("https://adsinternet.ir");
+                    var result = webClient.DownloadString("https://google.com");
+                    //Console.WriteLine($@"{Convert.ToByte(result)}");
+                }
+                catch (WebException ex) when (ex.Status != WebExceptionStatus.ProtocolError)
+                {
+                    Console.WriteLine("WebExceptionStatus.ProtocolError");
+                    throw;
+                }
+                catch (WebException ex) when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.InternalServerError)
+                {
+                    Console.WriteLine("HttpStatusCode.InternalServerError");
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"{ex}");
+                    throw;
+                }
+                finally
+                {
+                    Console.WriteLine("WebClientException Service is Disconnected");
+                    webClient.Dispose();
+                    //throw new WebClientException("سرویس قطع است");
+                }
+            }
+            catch (WebClientException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        #endregion
+
+
+
+        /// <summary>
+        /// Debug Class For Logging
+        /// </summary>
+        public void DebugExecute()
+        {
+            try
+            {
+                Debug.WriteLine(":::::::::::::::::::::::DebugExecute");
+                Debug.WriteLineIf(1 == 1, ":::::::::::::::::::::::DebugExecute");
+                Debug.Assert(1 == 1, ":::::::::::::::::::::::DebugExecute");
+                Debug.Fail(":::::::::::::::::::::::DebugExecute");
+                Debug.Close();
+                Debug.Unindent();
+                Debug.Flush();
+                Debug.Print(":::::::::::::::::::::::DebugExecute");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Trace Class For Logging
+        /// </summary>
+        public void TraceExecute()
+        {
+            try
+            {
+                Trace.WriteLine("||||||||||||||||||||||||||||||TraceExecute");
+                Trace.WriteLineIf(true, "||||||||||||||||||||||||||||||TraceExecute");
+                Trace.TraceWarning("||||||||||||||||||||||||||||||TraceExecute");
+                Trace.TraceError("||||||||||||||||||||||||||||||TraceExecute");
+                Trace.TraceInformation("||||||||||||||||||||||||||||||TraceExecute");
+                Trace.Refresh();
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {

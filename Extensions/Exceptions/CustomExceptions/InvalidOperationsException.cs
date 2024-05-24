@@ -1,8 +1,8 @@
 ﻿namespace DesignPatterns.Extensions.Exceptions.CustomExceptions;
 
-public class InvalidOperationsException : Exception
+public class InvalidOperationsException : CalculatorException
 {
-    private static readonly string Message = "Invalid Operation parameter";
+    private static readonly string Message = "عملگر اشتباه را وارد کردید";
 
     public InvalidOperationsException() : base(Message)
     {
@@ -18,5 +18,10 @@ public class InvalidOperationsException : Exception
     public InvalidOperationsException(string message, Exception innerException) : base(message, innerException)
     {
     }
+    public InvalidOperationsException(char operation) : base($"{Message} ({operation})")
+    {
+        base.Operation = $"{operation}";
+    }
+
 
 }

@@ -2,7 +2,7 @@
 
 public class CalculatorException : Exception
 {
-    public string Operation { get; }
+    public string Operation { get; set; }
     private static readonly string DefaultMessage = $"عملگر نامعتبر است";
     public CalculatorException() : base(DefaultMessage)
     {

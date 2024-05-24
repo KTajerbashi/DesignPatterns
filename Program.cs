@@ -3,6 +3,7 @@ using DesignPatterns.Extensions.Exceptions.Container;
 using DesignPatterns.Extensions.Exceptions.Documentation.Examples;
 using DesignPatterns.Extensions.Tools;
 using System.Collections;
+using System.Diagnostics;
 
 DesignConsole console = DesignConsole.DesignInstance();
 
@@ -24,10 +25,13 @@ ExceptionContainer container = new();
 //container.SystemFailuresExecute();
 //container.StackTrace_StackFrame_Execute();
 //container.DataExceptionExecute();
-container.InnerExceptionExecute();
-
+//container.InnerExceptionExecute();
+//container.CalculatorExceptionExecute();
+container.DebugExecute();
+container.TraceExecute();
 #endregion
 console.End("Application");
+
 
 
 Console.ReadLine();
