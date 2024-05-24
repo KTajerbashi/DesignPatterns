@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Extensions.Exceptions.Documentation.BaseExceptionService;
+﻿using DesignPatterns.Extensions.Exceptions.BaseExceptionService;
 using DesignPatterns.Extensions.Tools;
 using System.Net;
 

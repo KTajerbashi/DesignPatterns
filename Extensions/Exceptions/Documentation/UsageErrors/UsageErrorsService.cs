@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Extensions.Exceptions.Documentation.Models;
+﻿using DesignPatterns.Extensions.Exceptions.Models;
 
 namespace DesignPatterns.Extensions.Exceptions.Documentation.UsageErrors;
 

@@ -1,5 +1,5 @@
-﻿using DesignPatterns.Extensions.Exceptions.CustomExceptions;
-using DesignPatterns.Extensions.Exceptions.Documentation.BaseExceptionService;
+﻿using DesignPatterns.Extensions.Exceptions.BaseExceptionService;
+using DesignPatterns.Extensions.Exceptions.CustomExceptions;
 using System.Diagnostics;
 
 namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
