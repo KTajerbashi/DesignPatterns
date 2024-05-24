@@ -2,6 +2,7 @@
 using DesignPatterns.Extensions.Exceptions.Container;
 using DesignPatterns.Extensions.Exceptions.Documentation.Examples;
 using DesignPatterns.Extensions.Tools;
+using System.Collections;
 
 DesignConsole console = DesignConsole.DesignInstance();
 
@@ -18,7 +19,13 @@ console.ForeColor();
 
 #region Exceptions
 ExceptionContainer container = new();
-container.CalculatorService.Divide();
+//container.UsageErrorsExecute(2);
+//container.ProgramErrorsExecute("A");
+//container.SystemFailuresExecute();
+//container.StackTrace_StackFrame_Execute();
+//container.DataExceptionExecute();
+container.InnerExceptionExecute();
+
 #endregion
 console.End("Application");
 

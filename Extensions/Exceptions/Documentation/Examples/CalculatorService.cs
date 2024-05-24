@@ -72,7 +72,7 @@ namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
             catch (Exception ex)
             {
                 //ex.Data["Info"] = "Info At Method";
-                ex.Data["CalcualtorService.DataExceptionFun.Info"] = $"{ex.Message}";
+                ex.Data["CalculatorService.DataExceptionFun.Info"] = $"{ex.Message}";
                 throw;
             }
         }
@@ -85,7 +85,7 @@ namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
             catch (Exception ex)
             {
                 //ex.Data["Info"] = "Info At MethodA";
-                ex.Data["CalcualtorService.DataExceptionFunA.Info"] = $"{ex.Message}";
+                ex.Data["CalculatorService.DataExceptionFunA.Info"] = $"{ex.Message}";
                 throw;
             }
         }
@@ -112,7 +112,7 @@ namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
             }
             catch (Exception ex)
             {
-                throw new Exception("CalcualtorService.InnerException3", ex);
+                throw new Exception("CalculatorService.InnerException3", ex);
             }
         }
         public void InnerException1(string parameter)
@@ -124,7 +124,7 @@ namespace DesignPatterns.Extensions.Exceptions.Documentation.Examples
             }
             catch (Exception ex)
             {
-                throw new Exception("CalcualtorService.InnerException1", ex);
+                throw new Exception("CalculatorService.InnerException1", ex);
             }
         }
         public void InnerException2(string parameter)
