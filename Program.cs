@@ -1,37 +1,71 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using DesignPatterns.Extensions.Exceptions.Container;
-using DesignPatterns.Extensions.Exceptions.Documentation.Examples;
+using DesignPatterns;
 using DesignPatterns.Extensions.Tools;
-using System.Collections;
-using System.Diagnostics;
-
+using System.Security.Cryptography;
 DesignConsole console = DesignConsole.DesignInstance();
-
-
 console.Start("Application");
-
-
-#region Command Pattern
 console.ForeColor();
-//CommandContainer command = new();
-////command.Pattern();
-//command.MailService();
-#endregion
+Dictionary<string,List<string>> DataList =new Dictionary<string, List<string>>();
+DataList.Add("Creational Patterns", new List<string>
+{
+    "Singleton",
+    "Factory",
+    "Abstract Factory",
+    "Builder",
+    "Prototype"
+});
+DataList.Add("Structural Patterns", new List<string>
+{
+    "Adapter",
+    "Bridge",
+    "Composite",
+    "Decorator",
+    "Facade",
+    "Flyweight",
+    "Proxy"
+});
+DataList.Add("Behavioral Patterns", new List<string>
+{
+    "Chain of Responsibility",
+    "Command",
+    "Interpreter",
+    "Iterator",
+    "Mediator",
+    "Memento",
+    "Observer",
+    "State",
+    "Strategy",
+    "Template Method",
+    "Visitor",
+});
+DataList.Add("Exception", new List<string>
+{
+    "Program Errors",
+    "System Failures",
+    "Usage Errors",
+});
 
-#region Exceptions
-ExceptionContainer container = new();
-//container.UsageErrorsExecute(2);
-//container.ProgramErrorsExecute("A");
-//container.SystemFailuresExecute();
-//container.StackTrace_StackFrame_Execute();
-//container.DataExceptionExecute();
-//container.InnerExceptionExecute();
-//container.CalculatorExceptionExecute();
-container.DebugExecute();
-container.TraceExecute();
-#endregion
-console.End("Application");
-
-
-
+console.Title("Welcome To Application");
+int count = 1;
+foreach (var item in DataList)
+{
+    console.ForeColor();
+    console.Section($"{item.Key}");
+    foreach (var name in item.Value)
+    {
+        Console.WriteLine($"Press {count} For => {name} Services");
+        count++;
+    }
+}
+console.ForeColor();
+console.Title("Select Choices");
+Console.WriteLine("Which Number You Want to Run ?");
+var key = Console.ReadLine();
+while (key != "EXIT" || key == "CLOSE")
+{
+    MainApplication.Execute(key);
+    key = Console.ReadLine();
+}
+console.Section("Press Any Key ...");
 Console.ReadLine();
+console.End("Application");
