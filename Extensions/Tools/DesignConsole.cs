@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DesignPatterns.Extensions.Tools
 {
@@ -25,6 +26,18 @@ namespace DesignPatterns.Extensions.Tools
         public void ForeColor(ConsoleColor color)
         {
             Console.ForegroundColor = color;
+        }
+        public void WriteLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0)
+        {
+            Console.WriteLine(format, arg0);
+        }
+        public void WriteLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format)
+        {
+            Console.WriteLine(format);
+        }
+        public void Clear()
+        {
+            Console.Clear();
         }
 
         public void NewLine()

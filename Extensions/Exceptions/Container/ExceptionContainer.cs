@@ -551,5 +551,10 @@ Family : {resultModel.Family}
                 throw new WebClientException(ex.Message, ex);
             }
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
