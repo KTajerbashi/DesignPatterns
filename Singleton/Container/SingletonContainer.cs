@@ -1,14 +1,16 @@
-﻿namespace DesignPatterns.Singleton.Container
+﻿
+namespace DesignPatterns.Singleton.Container
 {
     public class SingletonContainer
     {
-        public void Execute()
+        public void Pattern()
         {
 
         }
-        private void Pattern()
-        {
 
+        internal void Execute()
+        {
+            throw new NotImplementedException();
         }
     }
 }

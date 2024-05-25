@@ -1,14 +1,16 @@
-﻿namespace DesignPatterns.Factory.Container
+﻿
+namespace DesignPatterns.Factory.Container
 {
     public class FactoryContainer
     {
-        public void Execute()
-        {
-
-        }
         public void Pattern()
         {
 
+        }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
         }
     }
 }

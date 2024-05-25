@@ -8,7 +8,7 @@ namespace DesignPatterns.Prototype.Container
 
         }
 
-        internal void Execute()
+        public void Execute()
         {
             throw new NotImplementedException();
         }
