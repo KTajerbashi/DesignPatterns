@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Flyweight.Container
+namespace DesignPatterns.Memento.Container
 {
-    public class FlyweightContainer
+    public class MementoContainer
     {
-        public void Pattern()
-        {
-
-        }
-
         internal void Execute()
         {
             throw new NotImplementedException();

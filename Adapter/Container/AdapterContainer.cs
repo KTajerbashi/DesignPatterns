@@ -1,4 +1,5 @@
-﻿namespace DesignPatterns.Adapter.Container
+﻿
+namespace DesignPatterns.Adapter.Container
 {
     public class AdapterContainer
     {
@@ -10,6 +11,11 @@
         public void Notifications()
         {
 
+        }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,7 +2,11 @@
 {
     public class SingletonContainer
     {
-        public void Pattern()
+        public void Execute()
+        {
+
+        }
+        private void Pattern()
         {
 
         }

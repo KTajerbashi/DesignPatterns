@@ -12,5 +12,10 @@ namespace DesignPatterns.Bridge.Container
         {
 
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -34,5 +34,10 @@ namespace DesignPatterns.TemplateMethod.Container
             Console.ForeColor();
             ClientRegisterCardOrder.Execute(new ConcreteCardServiceYahooService());
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

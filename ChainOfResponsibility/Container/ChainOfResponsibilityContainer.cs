@@ -47,5 +47,10 @@ namespace DesignPatterns.ChainOfResponsibility.Container
                 Destination = new Point { Lat = 54.32423, Lang = 43.2324 }
             });
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

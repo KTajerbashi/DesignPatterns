@@ -50,5 +50,10 @@ namespace DesignPatterns.Strategy.Container
                 Console.ForeColor();
             }
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

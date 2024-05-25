@@ -5,8 +5,10 @@ namespace DesignPatterns.Decorator.Container
 {
     public class DecoratorContainer
     {
-        public DecoratorContainer(DesignConsole design)
+        DesignConsole design;
+        public DecoratorContainer()
         {
+            design = DesignConsole.DesignInstance();
             design.NewLine();
             ConcreteComponent component = new();
             component.Operation();
@@ -17,6 +19,11 @@ namespace DesignPatterns.Decorator.Container
             ConcreteDecoratorGetData decoratorGetData = new(component);
             decoratorGetData.Operation();
             design.NewLine();
+        }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
         }
     }
 }

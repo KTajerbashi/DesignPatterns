@@ -47,5 +47,10 @@ namespace DesignPatterns.Commands.Container
                 key = Console.ReadLine();
             }
         }
+
+        internal void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
