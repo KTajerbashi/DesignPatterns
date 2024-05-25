@@ -34,10 +34,10 @@ namespace DesignPatterns
     public class MainApplication
     {
         private readonly ILogger logger;
-        public MainApplication(ILoggerFactory logger)
+        public MainApplication(ILogger logger)
         {
-            this.logger = logger.CreateLogger("Tajerbashi");
-
+            //this.logger = logger.CreateLogger(nameof(MainApplication));
+            this.logger = logger;
         }
         public void Execute(string key)
         {
@@ -47,14 +47,8 @@ namespace DesignPatterns
                 case "0":
                     {
                         Console.WriteLine("Microsoft Logger");
-                        logger.Log(LogLevel.Trace, "=======> Log Level Trace");
-                        logger.Log(LogLevel.Debug, "=======> Log Level Debug");
-                        logger.Log(LogLevel.Information, LogEventId.InsertItem, "=======> Log Level Information");
-                        logger.Log(LogLevel.Warning, "=======> Log Level Warning");
-                        logger.Log(LogLevel.Error, "=======> Log Level Error");
-                        logger.Log(LogLevel.Critical, "=======> Log Level Critical");
-                        logger.Log(LogLevel.None, "=======> Log Level None");
-                        MicrosoftLoggerContainer main = new();
+                       
+                        MicrosoftLoggerContainer main = new(logger);
                         main.Execute();
                         break;
                     }

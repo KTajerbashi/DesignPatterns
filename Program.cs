@@ -2,11 +2,6 @@
 using DesignPatterns;
 using DesignPatterns.Extensions.Tools;
 using Microsoft.Extensions.Logging;
-using System.Security.Cryptography;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-
-
 DesignConsole console = DesignConsole.DesignInstance();
 console.Start("Application");
 console.ForeColor();
@@ -69,14 +64,14 @@ var key = Console.ReadLine();
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder
-                .AddFilter("Microsoft", LogLevel.Warning)
-                .AddFilter("System", LogLevel.Warning)
-                .AddFilter("LoggingConsoleApp.Program", LogLevel.Debug)
-                .AddConsole();
+    .AddFilter("Microsoft", LogLevel.Trace)
+    .AddFilter("System", LogLevel.Trace)
+    .AddFilter("LoggingConsoleApp.Program", LogLevel.Trace)
+    .AddConsole()
+    ;
 });
 ILogger logger = loggerFactory.CreateLogger<Program>();
-logger.LogInformation("Example log message");
-MainApplication application = new(loggerFactory);
+MainApplication application = new(logger);
 while (key != "EXIT" || key == "CLOSE")
 {
     application.Execute(key);
@@ -85,3 +80,4 @@ while (key != "EXIT" || key == "CLOSE")
 console.Section("Press Any Key ...");
 Console.ReadLine();
 console.End("Application");
+
