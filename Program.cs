@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DesignPatterns;
 using DesignPatterns.Extensions.Tools;
-using Microsoft.Extensions.Logging;
+using NLog;
 DesignConsole console = DesignConsole.DesignInstance();
 console.Start("Application");
 console.ForeColor();
@@ -61,17 +61,7 @@ console.ForeColor();
 console.Title("Select Choices");
 Console.WriteLine("Which Number You Want to Run ?");
 var key = Console.ReadLine();
-using var loggerFactory = LoggerFactory.Create(builder =>
-{
-    builder
-    .AddFilter("Microsoft", LogLevel.Critical)
-    .AddFilter("System", LogLevel.Critical)
-    .AddFilter("LoggingConsoleApp.Program", LogLevel.Trace)
-    .AddConsole()
-    ;
-});
-ILogger logger = loggerFactory.CreateLogger<Program>();
-MainApplication application = new(logger);
+MainApplication application = new();
 while (key != "EXIT" || key == "CLOSE")
 {
     application.Execute(key);

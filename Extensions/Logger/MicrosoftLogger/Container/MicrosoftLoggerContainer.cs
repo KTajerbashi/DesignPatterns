@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿
+using NLog;
 
 namespace DesignPatterns.Extensions.Logger.MicrosoftLogger.Container
 {
@@ -15,11 +16,11 @@ namespace DesignPatterns.Extensions.Logger.MicrosoftLogger.Container
             Console.WriteLine("MicrosoftLoggerContainer.Execute()");
             _logger.Log(LogLevel.Trace, "=======> Log Level Trace");
             _logger.Log(LogLevel.Debug, "=======> Log Level Debug");
-            _logger.Log(LogLevel.Information, LogEventId.InsertItem, "=======> Log Level Information");
-            _logger.Log(LogLevel.Warning, "=======> Log Level Warning");
+            //_logger.Log(LogLevel.Info, LogEventId.InsertItem, "=======> Log Level Information");
+            _logger.Log(LogLevel.Warn, "=======> Log Level Warning");
             _logger.Log(LogLevel.Error, "=======> Log Level Error");
-            _logger.Log(LogLevel.Critical, "=======> Log Level Critical");
-            _logger.Log(LogLevel.None, "=======> Log Level None");
+            //_logger.Log(LogLevel.Critical, "=======> Log Level Critical");
+            //_logger.Log(LogLevel.None, "=======> Log Level None");
         }
     }
 }

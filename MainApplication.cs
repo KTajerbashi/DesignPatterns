@@ -27,17 +27,17 @@ using DesignPatterns.State.Container;
 using DesignPatterns.Strategy.Container;
 using DesignPatterns.TemplateMethod.Container;
 using DesignPatterns.Visitor.Container;
-using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace DesignPatterns
 {
     public class MainApplication
     {
-        private readonly ILogger logger;
-        public MainApplication(ILogger logger)
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
+        public MainApplication()
         {
             //this.logger = logger.CreateLogger(nameof(MainApplication));
-            this.logger = logger;
+            
         }
         public void Execute(string key)
         {
@@ -48,7 +48,7 @@ namespace DesignPatterns
                     {
                         Console.WriteLine("Microsoft Logger");
                        
-                        MicrosoftLoggerContainer main = new(logger);
+                        MicrosoftLoggerContainer main = new(Logger);
                         main.Execute();
                         break;
                     }
