@@ -64,8 +64,8 @@ var key = Console.ReadLine();
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder
-    .AddFilter("Microsoft", LogLevel.Trace)
-    .AddFilter("System", LogLevel.Trace)
+    .AddFilter("Microsoft", LogLevel.Critical)
+    .AddFilter("System", LogLevel.Critical)
     .AddFilter("LoggingConsoleApp.Program", LogLevel.Trace)
     .AddConsole()
     ;

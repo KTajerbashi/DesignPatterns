@@ -1,16 +1,21 @@
 ﻿
+using DesignPatterns.Extensions.Tools;
+
 namespace DesignPatterns.Singleton.Container
 {
     public class SingletonContainer
     {
+        DesignConsole Console = DesignConsole.DesignInstance();
+        public void Execute()
+        {
+            Console.WriteLine("SingletonContainer.Execute()");
+        }
+
         public void Pattern()
         {
 
         }
 
-        internal void Execute()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
