@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPattern.EndPoint.API.Logger.NLog.Container
+﻿namespace DesignPattern.EndPoint.API.Logger.NLog.Container
 {
-    internal class NLogContainer
+    public class NLogContainer
     {
-        internal void Execute()
+        public void Execute()
         {
-            throw new NotImplementedException();
         }
     }
 }

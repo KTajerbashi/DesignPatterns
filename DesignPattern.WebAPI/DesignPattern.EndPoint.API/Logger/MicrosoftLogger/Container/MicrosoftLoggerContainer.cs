@@ -1,6 +1,4 @@
 ﻿
-using NLog;
-
 namespace DesignPattern.EndPoint.API.Logger.MicrosoftLogger.Container
 {
     public class MicrosoftLoggerContainer
@@ -17,7 +15,7 @@ namespace DesignPattern.EndPoint.API.Logger.MicrosoftLogger.Container
             _logger.Log(LogLevel.Trace, "=======> Log Level Trace");
             _logger.Log(LogLevel.Debug, "=======> Log Level Debug");
             //_logger.Log(LogLevel.Info, LogEventId.InsertItem, "=======> Log Level Information");
-            _logger.Log(LogLevel.Warn, "=======> Log Level Warning");
+            _logger.Log(LogLevel.Warning, "=======> Log Level Warning");
             _logger.Log(LogLevel.Error, "=======> Log Level Error");
             //_logger.Log(LogLevel.Critical, "=======> Log Level Critical");
             //_logger.Log(LogLevel.None, "=======> Log Level None");
