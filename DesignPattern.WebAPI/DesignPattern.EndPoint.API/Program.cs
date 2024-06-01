@@ -11,10 +11,10 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
     var Configuration = builder.Configuration;
-    builder.Services.AddDbContext<DatabaseContext>(options =>
-    {
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-    });
+    //builder.Services.AddDbContext<DatabaseContext>(options =>
+    //{
+    //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+    //});
     //configure logging
     builder.Services.AddLogging(loggingBuilder =>
     {
