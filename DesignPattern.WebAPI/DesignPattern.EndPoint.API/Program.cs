@@ -1,5 +1,5 @@
-
-using DataAccesses.Contexts;
+using DataAccesses.Contexts.CommandsContextDatabase;
+using DataAccesses.Contexts.QueriesContextDatabase;
 using DesignPattern.EndPoint.API.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using NLog.Extensions.Logging;
@@ -11,10 +11,14 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
     var Configuration = builder.Configuration;
-    //builder.Services.AddDbContext<DatabaseContext>(options =>
-    //{
-    //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-    //});
+    builder.Services.AddDbContext<CommandsDatabaseContext>(options =>
+    {
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionCommand"));
+    });
+    builder.Services.AddDbContext<QueriesDatabaseContext>(options =>
+    {
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionQuery"));
+    });
     //configure logging
     builder.Services.AddLogging(loggingBuilder =>
     {

@@ -12,13 +12,13 @@ namespace DataAccesses.Contexts.CommandsContextDatabase
     }
 }
 
-//          optionsBuilder.UseSqlServer(@"
+//optionsBuilder.UseSqlServer(@"
 //Data Source = TAJERBASHI;
 //Initial Catalog = Console_Database;
 //User ID = sa; 
 //Password = 123123;
 //TrustServerCertificate = True;");
-//           optionsBuilder.UseSqlServer(@"
+//optionsBuilder.UseSqlServer(@"
 //Server=RHG-DATABASE\\DEV;
 //Database=Design_Pattern_DB;
 //User ID=sa; 
