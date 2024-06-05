@@ -2,5 +2,5 @@
 
 public abstract class Element
 {
-    public abstract void Accept(Visitor visitor);
+    public abstract void Accept(ConcreteVisitorA visitor);
 }

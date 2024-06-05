@@ -18,7 +18,7 @@ public class ObjectStructure
             Console.WriteLine($"Name : {item.GetType().Name}");
         }
     }
-    public void Accept(Visitor visitor)
+    public void Accept(ConcreteVisitorA visitor)
     {
         foreach (var item in Elements)
         {

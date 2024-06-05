@@ -59,10 +59,10 @@ namespace DesignPatterns.BehavioralPatterns.Visitor.Container
             objectStructure.Accept(visitorA);
             designConsole.ForeColor();
             Console.WriteLine("====================================================");
-            designConsole.ForeColor();
-            ConcreteVisitorB visitorB = new();
-            objectStructure.Accept(visitorB);
-            designConsole.ForeColor();
+            //designConsole.ForeColor();
+            //ConcreteVisitorB visitorB = new();
+            //objectStructure.Accept(visitorB);
+            //designConsole.ForeColor();
         }
 
         public void Taxi()

@@ -1,13 +1,13 @@
 ﻿namespace DesignPatterns.BehavioralPatterns.Visitor.Pattern;
 
-public class ConcreteVisitorA : Visitor
+public class ConcreteVisitorA //: Visitor
 {
-    public override void VisitConcreteElementA(ConcreteElementA concrete)
+    public void Visit(ConcreteElementA concrete)
     {
         Console.WriteLine($"{DateTime.Now} ) Type : {concrete.GetType().Name}  =>  Name : {concrete.Name}  =>  Visitor : {this.GetType().Name}");
     }
 
-    public override void VisitConcreteElementB(ConcreteElementB concrete)
+    public void Visit(ConcreteElementB concrete)
     {
         Console.WriteLine($"{DateTime.Now} ) Type : {concrete.GetType().Name}  =>  Name : {concrete.OrderId}  =>  Visitor : {this.GetType().Name}");
     }

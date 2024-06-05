@@ -8,8 +8,8 @@ public class ConcreteElementB : Element
     {
         this.OrderId = orderId;
     }
-    public override void Accept(Visitor visitor)
+    public override void Accept(ConcreteVisitorA visitor)
     {
-        visitor.VisitConcreteElementB(this);
+        visitor.Visit(this);
     }
 }

@@ -7,8 +7,8 @@ public class ConcreteElementA : Element
     {
         Name = name;
     }
-    public override void Accept(Visitor visitor)
+    public override void Accept(ConcreteVisitorA visitor)
     {
-        visitor.VisitConcreteElementA(this);
+        visitor.Visit(this);
     }
 }
