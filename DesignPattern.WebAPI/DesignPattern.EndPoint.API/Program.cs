@@ -1,5 +1,6 @@
 using DataAccesses.Contexts.CommandsContextDatabase;
 using DataAccesses.Contexts.QueriesContextDatabase;
+using DesignPattern.EndPoint.API.DIContainer;
 using DesignPattern.EndPoint.API.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using NLog.Extensions.Logging;
@@ -19,6 +20,8 @@ try
     {
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionQuery"));
     });
+    builder.Services.AddPatterServices();
+
     //configure logging
     builder.Services.AddLogging(loggingBuilder =>
     {

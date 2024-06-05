@@ -1,16 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DesignPatterns.Memento.Examples.CheckPointer;
+using DesignPatterns.Memento.Pattern;
 
 namespace DesignPatterns.Memento.Container
 {
     public class MementoContainer
     {
-        internal void Execute()
+        public void Pattern()
         {
-            throw new NotImplementedException();
+            Orginator orginator = new Orginator();
+            orginator.State = "Green";
+            Caretaker caretaker = new Caretaker();
+            caretaker.Memento = orginator.CreateMemento();
+            orginator.State = "Red";
+            orginator.State = "Yellow";
+            orginator.State = "Blue";
+
+            orginator.SetMemento(caretaker.Memento);
+        }
+
+        public void PersonActionExample()
+        {
+            PersonAction action = new PersonAction();
+            action.Action = 3;
+            action.Messages = $"Goto {(ActionRadarType)action.Action}";
+
+            ActionRadarManager manager = new ActionRadarManager();
+            manager.PersonRadar = action.CreatePersonRadar();
+            action.Action = 1;
+            action.Messages = $"Goto {(ActionRadarType)action.Action}";
+            manager.PersonRadar = action.CreatePersonRadar();
+            
+            action.Action = 2;
+            action.Messages = $"Goto {(ActionRadarType)action.Action}";
+            action.SetPersonRadar(manager.PersonRadar);
+            manager.PersonRadar = action.CreatePersonRadar();
+            
+            action.Action = 2;
+            action.Messages = $"Goto {(ActionRadarType)action.Action}";
+            manager.PersonRadar = action.CreatePersonRadar();
+        }
+        public void Execute()
+        {
+
         }
     }
 }
