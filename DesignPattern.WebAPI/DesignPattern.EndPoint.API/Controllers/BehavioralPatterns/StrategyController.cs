@@ -6,6 +6,11 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
     [Route("[controller]")]
     public class StrategyController : ControllerBase
     {
+        private readonly ILogger<StrategyController> _logger;
 
+        public StrategyController(ILogger<StrategyController> logger)
+        {
+            _logger = logger;
+        }
     }
 }

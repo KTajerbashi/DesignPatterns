@@ -6,6 +6,12 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
     [Route("[controller]")]
     public class InterpreterController : ControllerBase
     {
+        private readonly ILogger<InterpreterController> _logger;
+
+        public InterpreterController(ILogger<InterpreterController> logger)
+        {
+            _logger = logger;
+        }
 
     }
 }

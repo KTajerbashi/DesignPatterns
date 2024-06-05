@@ -6,6 +6,11 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
     [Route("[controller]")]
     public class MediatorController : ControllerBase
     {
+        private readonly ILogger<MediatorController> _logger;
 
+        public MediatorController(ILogger<MediatorController> logger)
+        {
+            _logger = logger;
+        }
     }
 }
