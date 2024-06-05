@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.BehavioralPatterns.Memento.Container;
 using DesignPatterns.BehavioralPatterns.Observer.Container;
+using DesignPatterns.BehavioralPatterns.Visitor.Container;
 
 namespace DesignPattern.EndPoint.API.DIContainer
 {
@@ -9,6 +10,7 @@ namespace DesignPattern.EndPoint.API.DIContainer
         {
             services.AddScoped<MementoContainer>();
             services.AddScoped<ObserverContainer>();
+            services.AddScoped<VisitorContainer>();
             return services;
         }
     }

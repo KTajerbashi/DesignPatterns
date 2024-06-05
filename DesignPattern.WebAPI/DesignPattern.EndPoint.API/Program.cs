@@ -21,6 +21,7 @@ try
     {
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionQuery"));
     });
+
     builder.Services.AddPatterServices();
 
     //configure logging
