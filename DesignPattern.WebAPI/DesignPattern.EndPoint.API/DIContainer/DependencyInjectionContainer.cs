@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Memento.Container;
+﻿using DesignPatterns.BehavioralPatterns.Memento.Container;
 
 namespace DesignPattern.EndPoint.API.DIContainer
 {
