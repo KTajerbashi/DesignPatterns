@@ -1,4 +1,5 @@
 ﻿using DataAccesses.Models;
+using DataAccesses.Models.Entities.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
@@ -40,7 +41,7 @@ public class ExceptionHandler
         }
         catch (Exception ex)
         {
-
+            Console.WriteLine(ex.Message);
             throw;
         }
     }

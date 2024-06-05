@@ -1,5 +1,4 @@
-﻿using DataAccesses.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DataAccesses.Contexts.CommandsContextDatabase
 {
@@ -8,7 +7,6 @@ namespace DataAccesses.Contexts.CommandsContextDatabase
         public CommandsDatabaseContext(DbContextOptions<CommandsDatabaseContext> options) : base(options)
         {
         }
-        public DbSet<LogEvent> LogEvents { get; set; }
     }
 }
 

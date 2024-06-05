@@ -1,9 +1,10 @@
-﻿namespace DataAccesses.Models
+﻿using DataAccesses.Models.Entities.Bases;
+
+namespace DataAccesses.Models.Entities.Security
 {
-    public class Person
+    public class Person : BaseEntity
     {
         public Guid Guid { get; set; }
-        public int ID { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
         public override string ToString()

@@ -43,6 +43,7 @@ Family : {resultModel.Family}
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 throw;
             }
             finally
@@ -108,6 +109,7 @@ Family : {resultModel.Family}
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 throw;
             }
             finally

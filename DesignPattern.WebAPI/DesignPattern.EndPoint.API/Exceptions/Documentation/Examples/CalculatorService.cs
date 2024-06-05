@@ -195,7 +195,7 @@ namespace DesignPattern.EndPoint.API.Exceptions.Documentation.Examples
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
                 throw;
             }
 
