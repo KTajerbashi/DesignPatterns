@@ -17,7 +17,6 @@ namespace DesignPatterns.BehavioralPatterns.Memento.Container
 
             orginator.SetMemento(caretaker.Memento);
         }
-
         public void PersonActionExample()
         {
             PersonAction action = new PersonAction();
