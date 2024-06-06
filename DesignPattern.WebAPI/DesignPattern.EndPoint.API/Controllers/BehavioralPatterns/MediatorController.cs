@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DesignPatterns.BehavioralPatterns.Mediator.Container;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
 {
@@ -7,10 +8,18 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
     public class MediatorController : ControllerBase
     {
         private readonly ILogger<MediatorController> _logger;
-
-        public MediatorController(ILogger<MediatorController> logger)
+        private readonly MediatorContainer mediatorContainer;
+        public MediatorController(ILogger<MediatorController> logger, MediatorContainer mediatorContainer)
         {
             _logger = logger;
+            this.mediatorContainer = mediatorContainer;
+        }
+
+        [HttpGet("Pattern")]
+        public async Task<IActionResult> Pattern()
+        {
+            mediatorContainer.Pattern();
+            return Ok("~ Mediator ...");
         }
     }
 }
