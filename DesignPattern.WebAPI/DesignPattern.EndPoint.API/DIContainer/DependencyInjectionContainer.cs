@@ -2,6 +2,7 @@
 using DesignPatterns.BehavioralPatterns.Mediator.Container;
 using DesignPatterns.BehavioralPatterns.Memento.Container;
 using DesignPatterns.BehavioralPatterns.Observer.Container;
+using DesignPatterns.BehavioralPatterns.State.Container;
 using DesignPatterns.BehavioralPatterns.Visitor.Container;
 
 namespace DesignPattern.EndPoint.API.DIContainer
@@ -15,6 +16,7 @@ namespace DesignPattern.EndPoint.API.DIContainer
             services.AddScoped<VisitorContainer>();
             services.AddScoped<MediatorContainer>();
             services.AddScoped<IteratorContainer>();
+            services.AddScoped<StateContainer>();
             return services;
         }
     }
