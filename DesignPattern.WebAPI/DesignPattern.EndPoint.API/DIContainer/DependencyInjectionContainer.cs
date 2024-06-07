@@ -1,4 +1,5 @@
-﻿using DesignPatterns.BehavioralPatterns.Iterator.Container;
+﻿using DesignPatterns.BehavioralPatterns.Interpreter.Container;
+using DesignPatterns.BehavioralPatterns.Iterator.Container;
 using DesignPatterns.BehavioralPatterns.Mediator.Container;
 using DesignPatterns.BehavioralPatterns.Memento.Container;
 using DesignPatterns.BehavioralPatterns.Observer.Container;
@@ -17,6 +18,7 @@ namespace DesignPattern.EndPoint.API.DIContainer
             services.AddScoped<MediatorContainer>();
             services.AddScoped<IteratorContainer>();
             services.AddScoped<StateContainer>();
+            services.AddScoped<InterpreterContainer>();
             return services;
         }
     }

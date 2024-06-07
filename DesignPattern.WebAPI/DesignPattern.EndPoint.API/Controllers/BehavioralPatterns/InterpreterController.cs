@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DesignPattern.EndPoint.API.Logger.Tools;
+using DesignPatterns.BehavioralPatterns.Interpreter.Container;
+using DesignPatterns.BehavioralPatterns.Iterator.Container;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
 {
@@ -7,10 +10,19 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
     public class InterpreterController : ControllerBase
     {
         private readonly ILogger<InterpreterController> _logger;
-
-        public InterpreterController(ILogger<InterpreterController> logger)
+        private readonly InterpreterContainer container;
+        public InterpreterController(ILogger<InterpreterController> logger, InterpreterContainer container)
         {
             _logger = logger;
+            this.container = container;
+        }
+
+        [HttpGet("Pattern")]
+        public IActionResult Pattern()
+        {
+            container.Pattern();
+            _logger.LogInformation(EventLogId.QueryValidation, "InterpreterContainer.Pattern() ....");
+            return Ok();
         }
 
     }
