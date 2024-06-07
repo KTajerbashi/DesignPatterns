@@ -24,5 +24,12 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
             _logger.LogInformation(EventLogId.QueryValidation, "StateController.Pattern() ....");
             return Ok();
         }
+        [HttpGet("OrderState")]
+        public IActionResult OrderState()
+        {
+            stateContainer.OrderState();
+            _logger.LogInformation(EventLogId.QueryValidation, "StateController.OrderState() ....");
+            return Ok();
+        }
     }
 }

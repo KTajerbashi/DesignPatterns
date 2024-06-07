@@ -1,4 +1,7 @@
-﻿using DesignPatterns.BehavioralPatterns.State.Pattern;
+﻿using DesignPatterns.BehavioralPatterns.State.Examples.OrderState.Entity;
+using DesignPatterns.BehavioralPatterns.State.Examples.OrderState.Enums;
+using DesignPatterns.BehavioralPatterns.State.Examples.OrderState.Services;
+using DesignPatterns.BehavioralPatterns.State.Pattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +24,13 @@ namespace DesignPatterns.BehavioralPatterns.State.Container
         internal void Execute()
         {
             throw new NotImplementedException();
+        }
+        public void OrderState()
+        {
+            OrderEntity order = new OrderEntity(new Waiting_To_Send());
+            order.Cancelled();
+            order.Send();
+            order.Delivered();
         }
     }
 }

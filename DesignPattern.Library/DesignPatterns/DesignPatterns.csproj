@@ -10,8 +10,4 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BehavioralPatterns\State\Examples\OrderState\" />
-  </ItemGroup>
-
 </Project>
