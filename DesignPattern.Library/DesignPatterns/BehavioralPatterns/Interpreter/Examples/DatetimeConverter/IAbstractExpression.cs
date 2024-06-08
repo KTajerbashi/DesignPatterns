@@ -34,7 +34,7 @@
         public void Interpret(DatetimeInterpreter interpreter)
         {
             string expression = interpreter.Expression;
-            interpreter.Expression = expression.Replace("YY", interpreter.DateTime.Day.ToString().Substring(2,2));
+            interpreter.Expression = expression.Replace("YY", interpreter.DateTime.Year.ToString().Substring(2,2));
         }
     }
 }
