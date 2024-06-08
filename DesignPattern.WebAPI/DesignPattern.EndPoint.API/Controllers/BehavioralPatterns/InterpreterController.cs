@@ -24,6 +24,12 @@ namespace DesignPattern.EndPoint.API.Controllers.BehavioralPatterns
             _logger.LogInformation(EventLogId.QueryValidation, "InterpreterContainer.Pattern() ....");
             return Ok();
         }
+        [HttpGet("DatetimeInterpreter")]
+        public IActionResult DatetimeInterpreter(string input)
+        {
+            _logger.LogInformation(EventLogId.QueryValidation, "InterpreterContainer.DatetimeInterpreterExecute() ....");
+            return Ok(container.DatetimeInterpreterExecute(input));
+        }
 
     }
 }

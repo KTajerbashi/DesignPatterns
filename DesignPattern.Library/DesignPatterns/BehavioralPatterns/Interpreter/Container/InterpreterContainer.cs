@@ -1,9 +1,5 @@
-﻿using DesignPatterns.BehavioralPatterns.Interpreter.Pattern;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DesignPatterns.BehavioralPatterns.Interpreter.Examples.DatetimeConverter;
+using DesignPatterns.BehavioralPatterns.Interpreter.Pattern;
 
 namespace DesignPatterns.BehavioralPatterns.Interpreter.Container
 {
@@ -29,9 +25,52 @@ namespace DesignPatterns.BehavioralPatterns.Interpreter.Container
                 item.Interpret(context);
             }
         }
-        internal void Execute()
+        public string DatetimeInterpreterExecute(string input)
         {
-            throw new NotImplementedException();
+            List<IAbstractExpression> expressions = new List<IAbstractExpression>();
+            DatetimeInterpreter datetime = new DatetimeInterpreter(DateTime.Now);
+            while (true)
+            {
+                Console.WriteLine("Select Mode Datetime Format By : YYYY - MM - DD - YY");
+                datetime.Expression = input.ToUpper();
+                string[] format = datetime.Expression.Split(' ');
+                foreach (var item in format)
+                {
+                    switch (item)
+                    {
+                        case "YYYY":
+                            {
+                                expressions.Add(new YearExpression());
+                                break;
+                            }
+                        case "MM":
+                            {
+                                expressions.Add(new MonthExpression());
+                                break;
+                            }
+                        case "DD":
+                            {
+                                expressions.Add(new DayExpression());
+                                break;
+                            }
+                        case "YY":
+                            {
+                                expressions.Add(new YearShortExpression());
+                                break;
+                            }
+                        case "":
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                }
+                foreach (var item in expressions)
+                {
+                    item.Interpret(datetime);
+                }
+                return datetime.Expression;
+            }
         }
     }
 }
