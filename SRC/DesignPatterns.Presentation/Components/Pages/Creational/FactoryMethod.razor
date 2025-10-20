@@ -42,6 +42,15 @@
 
     private void SendMessage()
     {
+        //  With Creator
+        MessageCreator creator = SelectedType switch
+        {
+            "sms" => new SmsMessageCreator(),
+            _ => new EmailMessageCreator()
+        };
+        Result = creator.SendMessage(Recipient, Content);
+
+        //  With DI Factory
         IMessageFactory factory = SelectedType switch
         {
             "sms" => SmsFactory,
