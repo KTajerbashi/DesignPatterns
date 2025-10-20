@@ -6,16 +6,21 @@
 <p>This demonstrates that the Singleton instance is shared across all accesses.</p>
 
 <div class="card p-3">
-    <p><b>@Message</b></p>
-    <button class="btn btn-primary" @onclick="GetSingletonInstance">Get Singleton Instance</button>
+    <p><b>@Instance1</b></p>
+    <p><b>@Instance2</b></p>
+    <button class="btn btn-primary" @onclick="GetSingletonInstance">Get Singleton Instance : @CountClick</button>
 </div>
 
 @code {
-    private string? Message;
-
+    private string? Instance1;
+    private string? Instance2;
+    private int CountClick = 1;
     private void GetSingletonInstance()
     {
-        var instance = DesignPatterns.Creational.PatternSingleton.Singleton.Instance;
-        Message = instance.GetMessage();
+        var instance1 = DesignPatterns.Creational.PatternSingleton.Singleton.Instance;
+        var instance2 = DesignPatterns.Creational.PatternSingleton.Singleton.Instance;
+        Instance1 = instance1.GetMessage();
+        Instance2 = instance2.GetMessage();
+        CountClick++;
     }
 }

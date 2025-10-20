@@ -1,9 +1,54 @@
 ﻿@page "/factoryMethod"
+@using DesignPatterns.Creational.PatternFactoryMethod
 @rendermode InteractiveServer
+@inject EmailMessageFactory EmailFactory
+@inject SmsMessageFactory SmsFactory
+@inject IEnumerable<IMessageFactory> Factories
 
+<h3>Factory Method Pattern (with Dependency Injection)</h3>
 
-<h3>FactoryMethod</h3>
+<p>Select a message type and send a test message.</p>
+
+<div class="card p-3">
+    <div class="mb-3">
+        <label class="form-label">Select Message Type:</label>
+        <select class="form-select" @bind="SelectedType">
+            <option value="email">Email</option>
+            <option value="sms">SMS</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Recipient (e.g. user@example.com)" @bind="Recipient" />
+    </div>
+
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Message Content" @bind="Content" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="SendMessage">Send Message</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-success mt-3">@Result</div>
+    }
+</div>
 
 @code {
+    private string SelectedType = "email";
+    private string Recipient = "";
+    private string Content = "";
+    private string? Result;
 
+    private void SendMessage()
+    {
+        IMessageFactory factory = SelectedType switch
+        {
+            "sms" => SmsFactory,
+            _ => EmailFactory
+        };
+
+        var message = factory.CreateMessage();
+        Result = message.Send(Recipient, Content);
+    }
 }

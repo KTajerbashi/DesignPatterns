@@ -1,3 +1,4 @@
+using DesignPatterns.Creational.PatternFactoryMethod;
 using DesignPatterns.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,9 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+
+builder.Services.AddFactoryMethod();
 
 var app = builder.Build();
 

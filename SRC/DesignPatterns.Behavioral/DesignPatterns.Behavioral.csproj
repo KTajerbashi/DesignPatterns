@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\..\SharedKernel\DesignPatterns.SharedKernel\DesignPatterns.SharedKernel.csproj" />
+	</ItemGroup>
+	
   <ItemGroup>
     <Folder Include="ChainOfResponsibility\" />
     <Folder Include="Command\" />
