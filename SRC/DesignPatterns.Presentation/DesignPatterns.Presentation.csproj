@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DesignPatterns.ServiceDefaults\DesignPatterns.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\DesignPatterns.Behavioral\DesignPatterns.Behavioral.csproj" />
+    <ProjectReference Include="..\DesignPatterns.Common\DesignPatterns.Common.csproj" />
+    <ProjectReference Include="..\DesignPatterns.Creational\DesignPatterns.Creational.csproj" />
+    <ProjectReference Include="..\DesignPatterns.Structural\DesignPatterns.Structural.csproj" />
+  </ItemGroup>
+
+</Project>

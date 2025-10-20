@@ -1,0 +1,21 @@
+﻿@page "/singleton"
+@rendermode InteractiveServer
+
+<h3>Singleton Pattern Demo</h3>
+
+<p>This demonstrates that the Singleton instance is shared across all accesses.</p>
+
+<div class="card p-3">
+    <p><b>@Message</b></p>
+    <button class="btn btn-primary" @onclick="GetSingletonInstance">Get Singleton Instance</button>
+</div>
+
+@code {
+    private string? Message;
+
+    private void GetSingletonInstance()
+    {
+        var instance = DesignPatterns.Creational.PatternSingleton.Singleton.Instance;
+        Message = instance.GetMessage();
+    }
+}
