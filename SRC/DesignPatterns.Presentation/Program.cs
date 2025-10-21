@@ -1,3 +1,4 @@
+using DesignPatterns.Creational.PatternAbstractFactory;
 using DesignPatterns.Creational.PatternFactoryMethod;
 using DesignPatterns.Presentation.Components;
 
@@ -9,8 +10,11 @@ builder.AddServiceDefaults();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-
-builder.Services.AddFactoryMethod();
+//  1 Singletone
+//  2
+builder.Services.AddPatternFactoryMethod();
+//  3
+builder.Services.AddPatternAbstractFactory();
 
 var app = builder.Build();
 

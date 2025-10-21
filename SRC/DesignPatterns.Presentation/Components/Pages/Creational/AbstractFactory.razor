@@ -1,8 +1,52 @@
 ﻿@page "/abstractFactory"
 @rendermode InteractiveServer
 
-<h3>AbstractFactory</h3>
+@using DesignPatterns.Creational.PatternAbstractFactory.Dark
+@using DesignPatterns.Creational.PatternAbstractFactory.Interfaces
+@using DesignPatterns.Creational.PatternAbstractFactory.Light
+
+@inject LightUIFactory LightFactory
+@inject DarkUIFactory DarkFactory
+
+<h3>Abstract Factory Pattern Demo</h3>
+
+<p>This demo shows how different factories can create families of related UI components.</p>
+
+<div class="card p-3">
+    <div class="mb-3">
+        <label class="form-label">Select Theme:</label>
+        <select class="form-select" @bind="SelectedTheme">
+            <option value="light">Light Theme</option>
+            <option value="dark">Dark Theme</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" @onclick="GenerateUI">Generate UI</button>
+
+    <div class="mt-4 p-3 border rounded" style="background-color: #f9f9f9;">
+        <h5>Generated Components:</h5>
+        @if (!string.IsNullOrEmpty(RenderedUI))
+        {
+            @((MarkupString)RenderedUI)
+        }
+    </div>
+</div>
 
 @code {
+    private string SelectedTheme = "light";
+    private string? RenderedUI;
 
+    private void GenerateUI()
+    {
+        IUIFactory factory = SelectedTheme switch
+        {
+            "dark" => new DarkUIFactory(),
+            _ => new LightUIFactory()
+        };
+
+        var button = factory.CreateButton();
+        var checkbox = factory.CreateCheckbox();
+
+        RenderedUI = $"{button.Render()}<br>{checkbox.Render()}";
+    }
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace DesignPatterns.Creational.PatternFactoryMethod;
+﻿namespace DesignPatterns.Creational.PatternFactoryMethod;
 
 public interface IMessage
 {
@@ -58,19 +56,4 @@ public class EmailMessageFactory : IMessageFactory
 public class SmsMessageFactory : IMessageFactory
 {
     public IMessage CreateMessage() => new SmsMessage();
-}
-
-public static class DependencyInjection
-{
-    public static IServiceCollection AddFactoryMethod(this IServiceCollection services)
-    {
-        // Register message factories
-        services.AddTransient<EmailMessageFactory>();
-        services.AddTransient<SmsMessageFactory>();
-
-        //services.AddTransient<IMessageFactory, EmailMessageFactory>();
-        //services.AddTransient<IMessageFactory, SmsMessageFactory>();
-
-        return services;
-    }
 }
