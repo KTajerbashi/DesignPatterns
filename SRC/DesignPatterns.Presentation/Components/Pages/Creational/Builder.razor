@@ -1,8 +1,80 @@
 ﻿@page "/builder"
 @rendermode InteractiveServer
+@using DesignPatterns.Creational.PatternBuilder
 
-<h3>Builder</h3>
+<h3>Builder Pattern Demo - Pizza Builder</h3>
+
+<p>Choose your pizza options and see the resulting pizza summary.</p>
+
+<div class="card p-3">
+    <div class="mb-3">
+        <label class="form-label">Select Pizza Type:</label>
+        <select class="form-select" @bind="SelectedBuilderType">
+            <option value="veggie">Veggie Pizza</option>
+            <option value="meat">Meat Pizza</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Size:</label>
+        <select class="form-select" @bind="SelectedSize">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Crust:</label>
+        <select class="form-select" @bind="SelectedCrust">
+            <option>Regular</option>
+            <option>Thin</option>
+            <option>Cheese Stuffed</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Toppings:</label>
+        <input type="text" class="form-control" placeholder="Comma separated toppings" @bind="ToppingsInput" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="BuildPizza">Build Pizza</button>
+
+    @if (BuiltPizza != null)
+    {
+        <div class="alert alert-success mt-3">
+            <h5>Pizza Summary:</h5>
+            <p>@BuiltPizza</p>
+        </div>
+    }
+</div>
 
 @code {
+    private string SelectedBuilderType = "veggie";
+    private string SelectedSize = "Medium";
+    private string SelectedCrust = "Regular";
+    private string ToppingsInput = "";
+    private Pizza? BuiltPizza;
 
+    private void BuildPizza()
+    {
+        IPizzaBuilder builder = SelectedBuilderType switch
+        {
+            "meat" => new MeatPizzaBuilder(),
+            _ => new VeggiePizzaBuilder()
+        };
+
+        builder.SetSize(SelectedSize);
+        builder.SetCrust(SelectedCrust);
+
+        if (!string.IsNullOrWhiteSpace(ToppingsInput))
+        {
+            foreach (var topping in ToppingsInput.Split(',', StringSplitOptions.TrimEntries))
+            {
+                builder.AddTopping(topping);
+            }
+        }
+
+        BuiltPizza = builder.Build();
+    }
 }
