@@ -1,9 +1,13 @@
 ﻿@page "/factoryMethod"
-@using DesignPatterns.Creational.PatternFactoryMethod
 @rendermode InteractiveServer
+
+
+@using DesignPatterns.Creational.PatternFactoryMethod
 @inject EmailMessageFactory EmailFactory
 @inject SmsMessageFactory SmsFactory
 @inject IEnumerable<IMessageFactory> Factories
+
+<PageTitle>Factory Method</PageTitle>
 
 <h3>Factory Method Pattern (with Dependency Injection)</h3>
 

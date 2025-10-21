@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Adapter\" />
     <Folder Include="Bridge\" />
     <Folder Include="Composite\" />
     <Folder Include="Decorator\" />
