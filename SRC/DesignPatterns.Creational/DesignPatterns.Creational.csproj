@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="PatternPrototype\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\DesignPatterns.SharedKernel\DesignPatterns.SharedKernel.csproj" />
   </ItemGroup>
 

@@ -1,9 +1,89 @@
 ﻿@page "/prototype"
 @rendermode InteractiveServer
+@using DesignPatterns.Creational.PatternPrototype
 
+<h3>Prototype Pattern Demo - Clone Pizza</h3>
 
-<h3>Prototype</h3>
+<p>Build a pizza and clone it multiple times. Modify clones without affecting the original.</p>
+
+<div class="card p-3">
+    <div class="mb-3">
+        <label class="form-label">Size:</label>
+        <select class="form-select" @bind="Size">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Crust:</label>
+        <select class="form-select" @bind="Crust">
+            <option>Regular</option>
+            <option>Thin</option>
+            <option>Cheese Stuffed</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Toppings (comma separated):</label>
+        <input type="text" class="form-control" @bind="ToppingsInput" />
+    </div>
+
+    <button class="btn btn-primary m-1" @onclick="CreateOriginal">Create Original Pizza</button>
+    <button class="btn btn-success m-1" @onclick="ClonePizza" disabled="@(!CanClone)">Clone Pizza</button>
+
+    @if (OriginalPizza != null)
+    {
+        <div class="alert alert-info mt-3">
+            <h5>Original Pizza:</h5>
+            <p>@OriginalPizza</p>
+        </div>
+    }
+
+    @if (ClonedPizzas.Count > 0)
+    {
+        <div class="alert alert-warning mt-3">
+            <h5>Cloned Pizzas:</h5>
+            @foreach (var clone in ClonedPizzas)
+            {
+                <p>@clone</p>
+            }
+        </div>
+    }
+</div>
 
 @code {
+    private string Size = "Medium";
+    private string Crust = "Regular";
+    private string ToppingsInput = "";
 
+    private PizzaPrototype? OriginalPizza;
+    private List<PizzaPrototype> ClonedPizzas = new();
+
+    private bool CanClone => OriginalPizza != null;
+
+    private void CreateOriginal()
+    {
+        OriginalPizza = new PizzaPrototype
+        {
+            Size = Size,
+            Crust = Crust,
+            Toppings = string.IsNullOrWhiteSpace(ToppingsInput)
+                ? new List<string>()
+                : ToppingsInput.Split(',', StringSplitOptions.TrimEntries).ToList()
+        };
+        ClonedPizzas.Clear();
+    }
+
+    private void ClonePizza()
+    {
+        if (OriginalPizza != null)
+        {
+            var clone = OriginalPizza.Clone();
+            // Optionally modify clone (example: add a topping)
+            clone.Toppings.Add("Extra Cheese");
+            ClonedPizzas.Add(clone);
+        }
+    }
 }
