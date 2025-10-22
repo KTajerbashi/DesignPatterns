@@ -1,4 +1,51 @@
 ﻿@page "/decorator"
+@using DesignPatterns.Structural.Decorator
 @rendermode InteractiveServer
 
 <PageTitle>Decorator</PageTitle>
+
+<h3>☕ Decorator Pattern Demo - Coffee Shop</h3>
+
+<p>Use decorators to dynamically add ingredients (milk, sugar) to your coffee.</p>
+
+<div class="card p-3 shadow-sm">
+    <h5>Customize Your Coffee</h5>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="milk" @bind="HasMilk" />
+        <label class="form-check-label" for="milk">Add Milk (+$0.50)</label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sugar" @bind="HasSugar" />
+        <label class="form-check-label" for="sugar">Add Sugar (+$0.20)</label>
+    </div>
+
+    <button class="btn btn-primary mt-3" @onclick="BuildCoffee">Build Coffee</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-success mt-3">
+            <strong>@Result</strong>
+        </div>
+    }
+</div>
+
+@code {
+    private bool HasMilk;
+    private bool HasSugar;
+    private string? Result;
+
+    private void BuildCoffee()
+    {
+        ICoffee coffee = new SimpleCoffee();
+
+        if (HasMilk)
+            coffee = new MilkDecorator(coffee);
+
+        if (HasSugar)
+            coffee = new SugarDecorator(coffee);
+
+        Result = $"{coffee.GetDescription()} — Total: ${coffee.GetCost():0.00}";
+    }
+}
