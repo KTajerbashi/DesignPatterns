@@ -1,4 +1,59 @@
 ﻿@page "/bridge"
+@using DesignPatterns.Structural.Bridge
 @rendermode InteractiveServer
 
 <PageTitle>Bridge</PageTitle>
+
+
+<h3>🌉 Bridge Pattern Demo</h3>
+<p>This demo shows how shapes (Circle, Square) can use different renderers (Vector, Raster).</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Select Shape:</label>
+        <select class="form-select" @bind="SelectedShape">
+            <option value="circle">Circle</option>
+            <option value="square">Square</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Select Renderer:</label>
+        <select class="form-select" @bind="SelectedRenderer">
+            <option value="vector">Vector Renderer</option>
+            <option value="raster">Raster Renderer</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" @onclick="DrawShape">Draw Shape</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-success mt-3">
+            <strong>Result:</strong> @Result
+        </div>
+    }
+</div>
+
+@code {
+    private string SelectedShape = "circle";
+    private string SelectedRenderer = "vector";
+    private string? Result;
+
+    private void DrawShape()
+    {
+        IRenderer renderer = SelectedRenderer switch
+        {
+            "raster" => new RasterRenderer(),
+            _ => new VectorRenderer()
+        };
+
+        Shape shape = SelectedShape switch
+        {
+            "square" => new Square(renderer),
+            _ => new Circle(renderer)
+        };
+
+        Result = shape.Draw();
+    }
+}
