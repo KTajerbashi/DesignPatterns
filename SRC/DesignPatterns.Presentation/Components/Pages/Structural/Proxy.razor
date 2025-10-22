@@ -1,4 +1,47 @@
 ﻿@page "/proxy"
+@using DesignPatterns.Structural.Proxy
 @rendermode InteractiveServer
 
 <PageTitle>Proxy</PageTitle>
+
+
+<h3>🧩 Proxy Pattern Demo - Lazy Image Loader</h3>
+
+<p>The Proxy Pattern delays object creation until needed — great for performance optimization.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Image File Name:</label>
+        <input type="text" class="form-control" @bind="FileName" placeholder="e.g., sunset.jpg" />
+    </div>
+    <div class="d-flex flex-row justify-content-center">
+        <button class="btn btn-outline-primary m-1" @onclick="CreateProxy">Create Proxy</button>
+        <button class="btn btn-outline-success m-1" @onclick="DisplayImage" disabled="@(_imageProxy == null)">Display Image</button>
+    </div>
+    @if (!string.IsNullOrEmpty(Message))
+    {
+        <div class="alert alert-info mt-3">
+            @Message
+        </div>
+    }
+</div>
+
+@code {
+    private string FileName = "sunset.jpg";
+    private IImage? _imageProxy;
+    private string? Message;
+
+    private void CreateProxy()
+    {
+        _imageProxy = new ProxyImage(FileName);
+        Message = $"Proxy for '{FileName}' created (image not loaded yet).";
+    }
+
+    private void DisplayImage()
+    {
+        if (_imageProxy != null)
+        {
+            Message = _imageProxy.Display();
+        }
+    }
+}
