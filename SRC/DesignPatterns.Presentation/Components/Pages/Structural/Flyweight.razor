@@ -1,4 +1,66 @@
 ﻿@page "/flyweight"
+@using DesignPatterns.Structural.Flyweight
 @rendermode InteractiveServer
 
 <PageTitle>Flyweight</PageTitle>
+
+
+<h3>🪶 Flyweight Pattern Demo - Circle Factory</h3>
+
+<p>The Flyweight Pattern shares objects with the same intrinsic state (like color) to save memory.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Color:</label>
+            <select class="form-select" @bind="SelectedColor">
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>Yellow</option>
+                <option>Black</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">X:</label>
+            <input type="number" class="form-control" @bind="X" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Y:</label>
+            <input type="number" class="form-control" @bind="Y" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary" @onclick="DrawCircle">Draw Circle</button>
+
+    @if (DrawnCircles.Any())
+    {
+        <div class="mt-3">
+            <h5>🖼️ Drawn Circles:</h5>
+            <ul class="list-group">
+                @foreach (var c in DrawnCircles)
+                {
+                    <li class="list-group-item">@c</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <div class="alert alert-info mt-3">
+        Total Circle Objects Created: <strong>@ShapeFactory.GetShapeCount()</strong>
+    </div>
+</div>
+
+@code {
+    private string SelectedColor = "Red";
+    private int X = 0;
+    private int Y = 0;
+    private List<string> DrawnCircles = new();
+
+    private void DrawCircle()
+    {
+        var circle = ShapeFactory.GetCircle(SelectedColor);
+        var desc = circle.GetDescription(X, Y);
+        DrawnCircles.Add(desc);
+    }
+}
