@@ -73,3 +73,17 @@ h1:focus {
     margin: 0px 0px 9px;
     border-top: 1px solid #330000;
 }
+
+.nav-item {
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.nav-link-icon {
+    font-size: 20px;
+}
