@@ -1,4 +1,43 @@
 ﻿@page "/facade"
+@using DesignPatterns.Structural.Facade
 @rendermode InteractiveServer
 
 <PageTitle>Facade</PageTitle>
+
+
+
+<h3>🚘 Facade Pattern Demo - Car System</h3>
+
+<p>The Facade Pattern hides complex subsystem logic behind a simple interface (Start/Stop Car).</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="d-flex flex-row justify-content-center">
+        <button class="btn btn-outline-success m-1" @onclick="StartCar">Start Car</button>
+        <button class="btn btn-outline-danger m-1" @onclick="StopCar">Stop Car</button>
+    </div>
+
+    @if (LogMessages.Any())
+    {
+        <ul class="list-group mt-3">
+            @foreach (var msg in LogMessages)
+            {
+                <li class="list-group-item">@msg</li>
+            }
+        </ul>
+    }
+</div>
+
+@code {
+    private readonly CarFacade _car = new();
+    private List<string> LogMessages = new();
+
+    private void StartCar()
+    {
+        LogMessages = _car.StartCar();
+    }
+
+    private void StopCar()
+    {
+        LogMessages = _car.StopCar();
+    }
+}
