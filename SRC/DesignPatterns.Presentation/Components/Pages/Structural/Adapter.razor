@@ -1,4 +1,38 @@
 ﻿@page "/adapter"
+@using DesignPatterns.Structural.Adapter
 @rendermode InteractiveServer
 
 <PageTitle>Adapter</PageTitle>
+
+<h3>🌡️ Adapter Pattern Demo</h3>
+<p>This demo converts temperature from a legacy Celsius service into Fahrenheit using an Adapter.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Enter Temperature (°C):</label>
+        <input type="number" class="form-control" @bind="TemperatureCelsius" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="ConvertTemperature">Convert to Fahrenheit</button>
+
+    @if (TemperatureFahrenheit.HasValue)
+    {
+        <div class="alert alert-success mt-3">
+            Celsius: @TemperatureCelsius °C <br />
+            Fahrenheit: @TemperatureFahrenheit.Value.ToString("F2") °F
+        </div>
+    }
+</div>
+
+@code {
+    private double TemperatureCelsius = 25;
+    private double? TemperatureFahrenheit;
+
+    private void ConvertTemperature()
+    {
+        var celsiusService = new CelsiusService(TemperatureCelsius);
+        ITemperature adapter = new TemperatureAdapter(celsiusService);
+        TemperatureFahrenheit = adapter.GetTemperatureFahrenheit();
+    }
+}
+

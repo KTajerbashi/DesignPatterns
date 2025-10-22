@@ -4,24 +4,31 @@ public interface ITemperature
 {
     double GetTemperatureFahrenheit();
 }
+// Legacy class providing temperature in Celsius
 public class CelsiusService
 {
-    public double GetTemperatureCelsius() => 25.0; // example temperature
+    private readonly double _tempCelsius;
+    public CelsiusService(double tempCelsius)
+    {
+        _tempCelsius = tempCelsius;
+    }
+
+    public double GetTemperatureCelsius() => _tempCelsius;
 }
 
+// The Adapter converts Celsius to Fahrenheit
 public class TemperatureAdapter : ITemperature
 {
     private readonly CelsiusService _celsiusService;
 
-    public TemperatureAdapter(CelsiusService service)
+    public TemperatureAdapter(CelsiusService celsiusService)
     {
-        _celsiusService = service;
+        _celsiusService = celsiusService;
     }
 
     public double GetTemperatureFahrenheit()
     {
-        return _celsiusService.GetTemperatureCelsius() * 9 / 5 + 32;
+        var celsius = _celsiusService.GetTemperatureCelsius();
+        return (celsius * 9 / 5) + 32;
     }
 }
-
-
