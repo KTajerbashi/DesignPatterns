@@ -1,4 +1,57 @@
 ﻿@page "/composite"
+@using DesignPatterns.Structural.Composite
 @rendermode InteractiveServer
 
 <PageTitle>Composite</PageTitle>
+
+
+
+<h3>🌳 Composite Pattern Demo - File System</h3>
+
+<p>The Composite Pattern allows you to build tree-like structures of files and folders.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Root Folder Name:</label>
+        <input type="text" class="form-control" @bind="RootName" />
+    </div>
+
+    <button class="btn btn-primary mb-3" @onclick="CreateStructure">Build Example Tree</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <pre class="bg-light p-3 border rounded">@Result</pre>
+    }
+</div>
+
+@code {
+    private string RootName = "Root";
+    private string? Result;
+
+    private void CreateStructure()
+    {
+        // Create root folder
+        var root = new FolderItem(RootName);
+
+        // Create subfolders and files
+        var folder1 = new FolderItem("Documents");
+        folder1.Add(new FileItem("Resume.docx"));
+        folder1.Add(new FileItem("CoverLetter.pdf"));
+
+        var folder2 = new FolderItem("Pictures");
+        folder2.Add(new FileItem("Photo1.png"));
+        folder2.Add(new FileItem("Photo2.jpg"));
+
+        var nestedFolder = new FolderItem("Projects");
+        nestedFolder.Add(new FileItem("ProjectA.csproj"));
+        nestedFolder.Add(new FileItem("ProjectB.csproj"));
+
+        // Combine hierarchy
+        root.Add(folder1);
+        root.Add(folder2);
+        root.Add(nestedFolder);
+
+        // Display structure
+        Result = root.GetDisplayText();
+    }
+}
