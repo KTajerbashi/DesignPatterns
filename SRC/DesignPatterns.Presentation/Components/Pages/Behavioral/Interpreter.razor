@@ -1,4 +1,61 @@
 ﻿@page "/interpreter"
+@using DesignPatterns.Behavioral.Interpreter
 @rendermode InteractiveServer
 
 <PageTitle>Interpreter</PageTitle>
+
+<h3>📖 Interpreter Pattern Demo - Simple Calculator</h3>
+
+<p>This demo interprets simple arithmetic expressions (like 5 + 3 or 10 - 2).</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label class="form-label">Left Number:</label>
+            <input type="number" class="form-control" @bind="Left" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Operator:</label>
+            <select class="form-select" @bind="Operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Right Number:</label>
+            <input type="number" class="form-control" @bind="Right" />
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <button class="btn btn-primary w-100" @onclick="InterpretExpression">Calculate</button>
+        </div>
+    </div>
+
+    @if (Result.HasValue)
+    {
+        <div class="alert alert-success mt-3">
+            Result: <strong>@Result.Value</strong>
+        </div>
+    }
+</div>
+
+@code {
+    private int Left = 0;
+    private int Right = 0;
+    private string Operator = "+";
+    private int? Result;
+
+    private void InterpretExpression()
+    {
+        IExpression leftExpr = new NumberExpression(Left);
+        IExpression rightExpr = new NumberExpression(Right);
+
+        IExpression expr = Operator switch
+        {
+            "+" => new AddExpression(leftExpr, rightExpr),
+            "-" => new SubtractExpression(leftExpr, rightExpr),
+            _ => leftExpr
+        };
+
+        Result = expr.Interpret();
+    }
+}
