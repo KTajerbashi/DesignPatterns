@@ -1,4 +1,44 @@
 ﻿@page "/chainOfResponsibility"
+@using DesignPatterns.Behavioral.ChainOfResponsibility
 @rendermode InteractiveServer
 
 <PageTitle>ChainOfResponsibility</PageTitle>
+
+
+
+<h3>🔗 Chain of Responsibility Demo</h3>
+
+<p>Requests are passed through a chain of handlers. Each handler decides whether to process it or pass it along.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Enter Request Value:</label>
+        <input type="number" class="form-control" @bind="RequestValue" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="HandleRequest">Handle Request</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-success mt-3">@Result</div>
+    }
+</div>
+
+@code {
+    private int RequestValue = 5;
+    private string? Result;
+
+    private void HandleRequest()
+    {
+        // Build chain
+        var level1 = new Level1Handler();
+        var level2 = new Level2Handler();
+        var level3 = new Level3Handler();
+
+        level1.SetNext(level2);
+        level2.SetNext(level3);
+
+        // Pass request through chain
+        Result = level1.Handle(RequestValue);
+    }
+}
