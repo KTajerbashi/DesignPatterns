@@ -1,4 +1,63 @@
 ﻿@page "/command"
+@using DesignPatterns.Behavioral.Command
 @rendermode InteractiveServer
 
 <PageTitle>Command</PageTitle>
+
+
+<h3>📝 Command Pattern Demo - Remote Control</h3>
+
+<p>This demo shows a remote control turning a light on/off using commands with undo support.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <button class="btn btn-success me-2" @onclick="TurnOn">Turn Light ON</button>
+        <button class="btn btn-danger me-2" @onclick="TurnOff">Turn Light OFF</button>
+        <button class="btn btn-secondary" @onclick="Undo">Undo</button>
+    </div>
+
+    <div class="alert alert-info mt-3">
+        Light status: <strong>@(Light.IsOn ? "ON" : "OFF")</strong>
+    </div>
+
+    @if (Log.Any())
+    {
+        <div class="mt-3">
+            <h5>Action Log:</h5>
+            <ul class="list-group">
+                @foreach (var item in Log)
+                {
+                    <li class="list-group-item">@item</li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+@code {
+    private Light Light = new();
+    private RemoteControl Remote = new();
+    private List<string> Log = new();
+
+    private void TurnOn()
+    {
+        var command = new LightOnCommand(Light);
+        Remote.SetCommand(command);
+        Remote.PressButton();
+        Log.Add("Light turned ON");
+    }
+
+    private void TurnOff()
+    {
+        var command = new LightOffCommand(Light);
+        Remote.SetCommand(command);
+        Remote.PressButton();
+        Log.Add("Light turned OFF");
+    }
+
+    private void Undo()
+    {
+        Remote.PressUndo();
+        Log.Add("Undo pressed");
+    }
+}
