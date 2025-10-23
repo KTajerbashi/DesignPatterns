@@ -1,4 +1,67 @@
 ﻿@page "/strategy"
+@using DesignPatterns.Behavioral.Strategy
 @rendermode InteractiveServer
 
 <PageTitle>Strategy</PageTitle>
+
+
+<h3>💡 Strategy Pattern Demo - Payment System</h3>
+
+<p>
+    This demo shows how the same operation (payment) can use different algorithms (strategies)
+    depending on the user's choice — without modifying the context logic.
+</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Payment Amount:</label>
+            <input type="number" step="0.01" class="form-control" @bind="Amount" />
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Select Payment Method:</label>
+            <select class="form-select" @bind="SelectedStrategy">
+                <option value="">-- Choose --</option>
+                <option value="CreditCard">💳 Credit Card</option>
+                <option value="PayPal">💻 PayPal</option>
+                <option value="Crypto">🪙 Cryptocurrency</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn btn-primary mb-3" @onclick="PayNow">Pay Now</button>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-info">@Result</div>
+    }
+</div>
+
+@code {
+    private PaymentContext Context = new();
+    private string SelectedStrategy = string.Empty;
+    private decimal Amount = 0;
+    private string Result = string.Empty;
+
+    private void PayNow()
+    {
+        switch (SelectedStrategy)
+        {
+            case "CreditCard":
+                Context.SetStrategy(new CreditCardPayment());
+                break;
+            case "PayPal":
+                Context.SetStrategy(new PayPalPayment());
+                break;
+            case "Crypto":
+                Context.SetStrategy(new CryptoPayment());
+                break;
+            default:
+                Context.SetStrategy(null);
+                break;
+        }
+
+        Result = Context.ExecutePayment(Amount);
+    }
+}
