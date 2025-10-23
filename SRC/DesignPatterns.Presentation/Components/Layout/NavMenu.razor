@@ -8,19 +8,7 @@
     <nav class="nav flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="nav-link-icon bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="nav-link-icon bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                <span><i class="nav-link-icon bi bi-layout-wtf"></i></span> <span>Dashboard</span>
             </NavLink>
         </div>
         <div class="nav-item-divider"></div>
@@ -57,7 +45,7 @@
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="bridge">
-                <span><i class="nav-link-icon bi bi-bridge "></i></span> <span>Bridge</span>
+                <span><i class="nav-link-icon bi bi-bricks "></i></span> <span>Bridge</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -67,7 +55,7 @@
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="decorator">
-                <span><i class="nav-link-icon bi bi-paint-bucket-fill "></i></span> <span>Decorator</span>
+                <span><i class="nav-link-icon bi bi-window-dock "></i></span> <span>Decorator</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -88,56 +76,82 @@
         <div class="nav-item-divider"></div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="chainOfResponsibility">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>ChainOfResponsibility</span>
+                <span><i class="nav-link-icon bi bi-bounding-box "></i></span> <span>ChainOfResponsibility</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="command">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>
-                    Command
-                </span>
+                <span><i class="nav-link-icon bi bi-command "></i></span> <span>Command</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="interpreter">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Interpreter</span>
+                <span><i class="nav-link-icon bi bi-terminal "></i></span> <span>Interpreter</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="iterator">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Iterator</span>
+                <span><i class="nav-link-icon bi bi-list-ol "></i></span> <span>Iterator</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="mediator">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Mediator</span>
+                <span><i class="nav-link-icon bi bi-airplane-engines"></i></span> <span>Mediator</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="memento">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Memento</span>
+                <span><i class="nav-link-icon bi bi-stack"></i></span> <span>Memento</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="observer">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Observer</span>
+                <span><i class="nav-link-icon bi bi-bezier"></i></span> <span>Observer</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="state">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>State</span>
+                <span><i class="nav-link-icon bi bi-view-stacked "></i></span> <span>State</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="strategy">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>Strategy</span>
+                <span><i class="nav-link-icon bi bi-globe-asia-australia "></i></span> <span>Strategy</span>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="templateMethod">
-                <span class="nav-link-icon bi bi-list-nested-nav-menu" aria-hidden="true"></span> <span>TemplateMethod</span>
+                <span><i class="nav-link-icon bi bi-back "></i></span> <span>TemplateMethod</span>
             </NavLink>
         </div>
     </nav>
 </div>
 
+@code {
+    public class MenuItem
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty; // Bootstrap icon classes
+        public string Href { get; set; } = string.Empty;
+        public bool IsDivider { get; set; } = false;
+    }
+    public List<MenuItem> Children { get; set; } = new();
+    protected override void OnInitialized()
+    {
+        Children = new List<MenuItem>
+        {
+            new MenuItem { Title = "Home", Href = "", Icon = "bi bi-house-door-fill" },
+            new MenuItem { Title = "Counter", Href = "counter", Icon = "bi bi-plus-square-fill" },
+            new MenuItem { Title = "Weather", Href = "weather", Icon = "bi bi-list-nested" },
+            new MenuItem { IsDivider = true },
+            new MenuItem { Title = "Dashboard", Href = "dashboard", Icon = "bi bi-layout-wtf" },
+            // Design Patterns
+            new MenuItem { IsDivider = true },
+            new MenuItem { Title = "Singleton", Href = "singleton", Icon = "bi bi-shield-fill-check" },
+            new MenuItem { Title = "Factory Method", Href = "factoryMethod", Icon = "bi bi-gear-fill" },
+            new MenuItem { Title = "Abstract Factory", Href = "abstractFactory", Icon = "bi bi-box-seam" },
+            // Add more items as needed
+        };
+
+    }
+}

@@ -11,10 +11,6 @@
 	</ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="ChainOfResponsibility\" />
-    <Folder Include="Command\" />
-    <Folder Include="Interpreter\" />
-    <Folder Include="Iterator\" />
     <Folder Include="Mediator\" />
     <Folder Include="Memento\" />
     <Folder Include="TemplateMethod\" />

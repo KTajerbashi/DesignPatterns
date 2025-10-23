@@ -2,12 +2,23 @@
 
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+        @if (State.Equals("Default"))
+        {
+            <NavMenu />
+        }
+        else
+        {
+            <NavMenuServer />
+        }
     </div>
 
     <main>
         <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            <button title="Login" class="btn btn-outline-primary mx-1">Login</button>
+            <button title="Logout" class="btn btn-outline-danger mx-1">Logout</button>
+            <button title="Profile" class="btn btn-outline-dark mx-1">
+                <i class="bi bi-person-circle"></i>
+            </button>
         </div>
 
         <article class="content px-4">
@@ -21,3 +32,8 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code {
+    public string State { get; set; } = "Default";
+
+}
