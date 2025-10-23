@@ -1,4 +1,56 @@
 ﻿@page "/iterator"
+@using DesignPatterns.Behavioral.Iterator
 @rendermode InteractiveServer
 
 <PageTitle>Iterator</PageTitle>
+
+
+
+<h3>🔄 Iterator Pattern Demo - Playlist</h3>
+
+<p>Iterate over a playlist without exposing its internal structure.</p>
+
+<div class="card p-3 shadow-sm">
+    <button class="btn btn-primary me-2" @onclick="NextSong" disabled="@(!HasNext)">Next Song</button>
+
+    @if (CurrentSong != null)
+    {
+        <div class="alert alert-info mt-3">
+            Now playing: <strong>@CurrentSong.Title</strong>
+        </div>
+    }
+
+    @if (!HasNext && CurrentSong != null)
+    {
+        <div class="alert alert-warning mt-3">End of playlist reached!</div>
+    }
+</div>
+
+@code {
+    private Playlist Playlist = new();
+    private IIterator<Song>? IteratorHandler;
+    private Song? CurrentSong;
+    private bool HasNext = true;
+
+    protected override void OnInitialized()
+    {
+        // Add songs
+        Playlist.AddSong(new Song("Bohemian Rhapsody"));
+        Playlist.AddSong(new Song("Imagine"));
+        Playlist.AddSong(new Song("Stairway to Heaven"));
+        Playlist.AddSong(new Song("Hotel California"));
+
+        // Create iterator
+        IteratorHandler = Playlist.CreateIterator();
+        HasNext = IteratorHandler.HasNext();
+    }
+
+    private void NextSong()
+    {
+        if (IteratorHandler != null && IteratorHandler.HasNext())
+        {
+            CurrentSong = IteratorHandler.Next();
+            HasNext = IteratorHandler.HasNext();
+        }
+    }
+}
