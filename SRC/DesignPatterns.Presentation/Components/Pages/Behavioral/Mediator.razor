@@ -1,4 +1,91 @@
 ﻿@page "/mediator"
+@using DesignPatterns.Behavioral.Mediator
 @rendermode InteractiveServer
 
 <PageTitle>Mediator</PageTitle>
+
+
+<h3>🧭 Mediator Pattern Demo - Chat Room</h3>
+
+<p>This demo shows users communicating through a central Mediator instead of directly.</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-5">
+            <label class="form-label">Select User:</label>
+            <select class="form-select" @bind="SelectedUserName">
+                @foreach (var user in Users)
+                {
+                    <option value="@user.Name">@user.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-5">
+            <label class="form-label">Message:</label>
+            <input type="text" class="form-control" @bind="Message" />
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button class="btn btn-primary w-100" @onclick="SendMessage">Send</button>
+        </div>
+    </div>
+
+    <h5 class="mt-3">Chat Logs</h5>
+    <div class="row">
+        @foreach (var user in Users)
+        {
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-light fw-bold">@user.Name</div>
+                    <div class="card-body" style="min-height:150px; max-height:200px; overflow:auto;">
+                        @if (user.Messages.Any())
+                        {
+                            @foreach (var msg in user.Messages)
+                            {
+                                <div>@msg</div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-muted">No messages yet.</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private ChatMediator MediatorHandler = new();
+    private List<User> Users = new();
+    private string SelectedUserName = string.Empty;
+    private string Message = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        // Initialize users and mediator
+        var user1 = new User("Alice", MediatorHandler);
+        var user2 = new User("Bob", MediatorHandler);
+        var user3 = new User("Charlie", MediatorHandler);
+
+        MediatorHandler.AddUser(user1);
+        MediatorHandler.AddUser(user2);
+        MediatorHandler.AddUser(user3);
+
+        Users.AddRange(new[] { user1, user2, user3 });
+
+        SelectedUserName = Users.First().Name;
+    }
+
+    private void SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(Message)) return;
+
+        var sender = Users.FirstOrDefault(u => u.Name == SelectedUserName);
+        sender?.Send(Message);
+
+        Message = string.Empty;
+    }
+}
