@@ -1,4 +1,65 @@
 ﻿@page "/memento"
+@using DesignPatterns.Behavioral.Memento
 @rendermode InteractiveServer
 
 <PageTitle>Memento</PageTitle>
+
+
+
+<h3>🧠 Memento Pattern Demo - Simple Text Editor</h3>
+
+<p>This demo allows you to type text and undo using the Memento pattern.</p>
+
+<div class="card p-3 shadow-sm">
+    <textarea class="form-control mb-3" rows="4" @bind="EditorContent"></textarea>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-primary" @onclick="SaveState">Save</button>
+        <button class="btn btn-warning" @onclick="Undo" disabled="@(!Caretaker.HasHistory)">Undo</button>
+        <button class="btn btn-secondary" @onclick="Clear">Clear</button>
+    </div>
+
+    <div class="alert alert-info mt-3">
+        <strong>Current Editor State:</strong> <br />
+        @Editor.Content
+    </div>
+</div>
+
+@code {
+    private Editor Editor = new();
+    private Caretaker Caretaker = new();
+    private string EditorContent
+    {
+        get => Editor.Content;
+        set
+        {
+            // Instead of trying to "append" changes, just set the content
+            Editor.SetContent(value);
+        }
+    }
+
+    // private void SaveState()
+    // {
+    //     Caretaker.SaveState(Editor.Save());
+    // }
+    private void SaveState()
+    {
+        if (!string.IsNullOrWhiteSpace(Editor.Content))
+            Caretaker.SaveState(Editor.Save());
+    }
+
+    private void Undo()
+    {
+        var memento = Caretaker.Undo();
+        if (memento != null)
+        {
+            Editor.Restore(memento);
+        }
+    }
+
+    private void Clear()
+    {
+        Editor = new();
+        Caretaker = new();
+    }
+}
