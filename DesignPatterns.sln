@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.ServiceDefau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.SharedKernel", "SharedKernel\DesignPatterns.SharedKernel\DesignPatterns.SharedKernel.csproj", "{105DBCCA-27BF-4C65-AE5B-ABF78B85E8B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.External", "SharedKernel\DesignPatterns.External\DesignPatterns.External.csproj", "{5C620B16-B98B-4379-A48C-4472B7C404CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{105DBCCA-27BF-4C65-AE5B-ABF78B85E8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{105DBCCA-27BF-4C65-AE5B-ABF78B85E8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{105DBCCA-27BF-4C65-AE5B-ABF78B85E8B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C620B16-B98B-4379-A48C-4472B7C404CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C620B16-B98B-4379-A48C-4472B7C404CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C620B16-B98B-4379-A48C-4472B7C404CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C620B16-B98B-4379-A48C-4472B7C404CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{88611892-8713-446E-8BBA-73835E32E04C} = {6F89D2F7-1CFC-4D8D-B7CF-580A21424241}
 		{C07200CB-0434-2933-BF1A-B07639A784DD} = {6F89D2F7-1CFC-4D8D-B7CF-580A21424241}
 		{105DBCCA-27BF-4C65-AE5B-ABF78B85E8B6} = {254DA082-8E4D-49DF-9CF6-FB2D17D9F45F}
+		{5C620B16-B98B-4379-A48C-4472B7C404CA} = {254DA082-8E4D-49DF-9CF6-FB2D17D9F45F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9EB29E51-593F-4AB1-B452-4A16BA3AF765}
