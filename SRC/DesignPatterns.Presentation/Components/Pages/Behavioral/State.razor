@@ -1,4 +1,55 @@
 ﻿@page "/state"
+@using DesignPatterns.Behavioral.State
 @rendermode InteractiveServer
 
 <PageTitle>State</PageTitle>
+
+
+<h3>⚙️ State Pattern Demo - Order Lifecycle</h3>
+
+<p>
+    This demo shows how an order changes behavior as its internal state transitions through different stages.
+</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="mb-3">
+        <h5>Current State: <span class="badge bg-info text-dark">@Order.State.Name</span></h5>
+    </div>
+
+    <div class="d-flex gap-2 mb-3">
+        <button class="btn btn-primary" @onclick="ProceedToNext">Next Step</button>
+        <button class="btn btn-secondary" @onclick="ResetOrder">Reset</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Message))
+    {
+        <div class="alert alert-info">@Message</div>
+    }
+
+    <h6 class="mt-3">Order Progress</h6>
+    <ul class="list-group">
+        @foreach (var log in History)
+        {
+            <li class="list-group-item">@log</li>
+        }
+    </ul>
+</div>
+
+@code {
+    private OrderContext Order = new();
+    private string Message = string.Empty;
+    private List<string> History = new();
+
+    private void ProceedToNext()
+    {
+        Message = Order.Proceed();
+        History.Add($"{DateTime.Now:T} → {Message}");
+    }
+
+    private void ResetOrder()
+    {
+        Order = new OrderContext();
+        Message = "Order reset to 'New Order'.";
+        History.Clear();
+    }
+}
