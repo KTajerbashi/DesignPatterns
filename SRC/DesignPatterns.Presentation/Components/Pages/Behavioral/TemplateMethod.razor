@@ -1,4 +1,55 @@
 ﻿@page "/templateMethod"
+@using DesignPatterns.Behavioral.TemplateMethod
 @rendermode InteractiveServer
 
 <PageTitle>TemplateMethod</PageTitle>
+
+
+<h3>📄 Template Method Pattern Demo - Report Generator</h3>
+
+<p>
+    This demo shows how different report types share a common generation process but vary in how they process and export data.
+</p>
+
+<div class="card p-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Select Report Type:</label>
+            <select class="form-select" @bind="SelectedReport">
+                <option value="">-- Choose --</option>
+                <option value="PDF">📄 PDF Report</option>
+                <option value="Excel">📊 Excel Report</option>
+                <option value="HTML">🌐 HTML Report</option>
+            </select>
+        </div>
+
+        <div class="col-md-6 d-flex align-items-end">
+            <button class="btn btn-primary w-100" @onclick="GenerateReport">Generate</button>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Result))
+    {
+        <div class="alert alert-info white-space-pre">@Result</div>
+    }
+</div>
+
+@code {
+    private string SelectedReport = string.Empty;
+    private string Result = string.Empty;
+
+    private void GenerateReport()
+    {
+        ReportTemplate reportGenerator = SelectedReport switch
+        {
+            "PDF" => new PdfReport(),
+            "Excel" => new ExcelReport(),
+            "HTML" => new HtmlReport(),
+            _ => null
+        };
+
+        Result = reportGenerator == null
+            ? "❌ Please select a report type."
+            : reportGenerator.GenerateReport();
+    }
+}

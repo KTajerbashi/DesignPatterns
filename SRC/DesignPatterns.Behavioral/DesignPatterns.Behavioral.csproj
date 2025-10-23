@@ -9,14 +9,5 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\SharedKernel\DesignPatterns.SharedKernel\DesignPatterns.SharedKernel.csproj" />
 	</ItemGroup>
-	
-  <ItemGroup>
-    <Folder Include="Mediator\" />
-    <Folder Include="Memento\" />
-    <Folder Include="TemplateMethod\" />
-    <Folder Include="Strategy\" />
-    <Folder Include="State\" />
-    <Folder Include="Observer\" />
-  </ItemGroup>
 
 </Project>
